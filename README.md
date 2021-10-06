@@ -1,12 +1,12 @@
 ## **Site Goals**
 
-This project is part of my [Code Institute](https://codeinstitute.net/) Full Stack Software Development Diploma, specifically for the **Full Stack Frameworks** Module. The objective of this project is to "build a full-stack site based around business logic used to control a centrally-owned dataset". The site will feature an authentication mechanism and provide paid access to the site's data and based on the dataset, such as the purchase of a product.
+This project is part of my [Code Institute](https://codeinstitute.net/) Full Stack Software Development Diploma, specifically for the **Full Stack Frameworks** module. The objective of this project is to "build a full-stack site based around business logic used to control a centrally-owned dataset". The site features an authentication mechanism and provides paid access to the site's data based on the dataset, such as the purchase of a product.
 
 ## **UX**
 
 ### User Stories
 
-As a user, I would like to:
+#### As a user, I would like to:
 
 **Viewing and Navigation**
 
@@ -40,7 +40,7 @@ As a user, I would like to:
 
 - [x] Sort multiple categories of products simultaneously across broad categories such as clothing or footwear or hats
 
-- [x] Search for a product by name or description
+- [x] Search for a product by name, description or brand
 
 - [x] Easily see what I have searched for and the number of results
 
@@ -64,7 +64,7 @@ As a user, I would like to:
 
 - [x] Receive a confirmation email after checkout
 
-As an admin, I would like to:
+#### As an admin, I would like to:
 
 **Admin and Store Management**
 
@@ -73,3 +73,9 @@ As an admin, I would like to:
 - [x] Edit/update a product
 
 - [x] Delete a product
+
+Possible additions:
+
+- [x] See which products are being viewed the most
+
+- [x] See product sales volumes to see which products are selling best
