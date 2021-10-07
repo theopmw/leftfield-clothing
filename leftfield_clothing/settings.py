@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    # consider adding later to link social accounts:
+    # 'allauth.socialaccount.providers.facebook',
+    # 'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +68,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
+                # context_processors.request below required by allauth
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -66,6 +76,35 @@ TEMPLATES = [
         },
     },
 ]
+
+# AUTHENTICATION_BACKENDS copied from:
+# https://django-allauth.readthedocs.io/en/latest/installation.html
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SITE_ID = 1
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Tells allauth to allow authentication using username or email
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+# Ensure email is required to register for the site
+ACCOUNT_EMAIL_REQUIRED = True
+# Ensure verifying email is mandatory
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+# Require email to be entered twice on registration page
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+# Set minimum username length
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+# Specify login url
+LOGIN_URL = '/accounts/login/'
+# Specify url to redirect back to on successul login
+LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'leftfield_clothing.wsgi.application'
 
