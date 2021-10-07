@@ -29,7 +29,7 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title>Leftfield Clothing {% bock extra_title %}{% endblock %}</title>
+    <title>Leftfield Clothing {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
       <header class="container-fluid fixed-top"></header>
@@ -46,5 +46,6 @@
 
       {% block postloadjs %}
       {% endblock %}
+
   </body>
 </html>
