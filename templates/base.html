@@ -79,7 +79,7 @@
                                     {% if request.user.is_superuser %}
                                         <a href="" class="dropdown-item">Product Management</a>
                                     {% endif %}
-                                    <a href="" class="dropdown-item">My Profile</a>
+                                    <a href="" class="dropdown-item">Profile</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                                 {% else %}
                                     <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
@@ -104,6 +104,27 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+            <div class="row bg-white">
+                <!-- Main site nav modified from https://getbootstrap.com/docs/4.0/components/navbar/ -->
+                <div class="col-12 my-auto mx-auto text-center d-block d-lg-none">
+                    <a href="{% url 'home' %}" class="nav-link main-logo-link uppercase text-black">
+                        <h2 class="my-0 main-logo-link-leftfield">Leftfield</h2>
+                        <h6 class="my-0 main-logo-link-clothing">Clothing</h6>
+                    </a>
+                </div>
+                <nav class="navbar navbar-expand-lg navbar-light w-100 px-2">
+                    <button class="navbar-toggler custom-toggler rounded-0" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    {% include 'includes/mobile-top-header.html' %}
+                    {% include 'includes/main-nav.html' %}
+                </nav>
+            </div>
+            <div id="delivery-banner" class="row text-center">
+                <div class="col bg-black text-white">
+                    <h4 class="font-raleway my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>                
+                </div>            
             </div>
         </header>
 
