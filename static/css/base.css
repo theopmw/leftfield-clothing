@@ -1,3 +1,41 @@
+/* -------------------------------- General Text */
+
 .text-black {
+    color: #000 !important;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+/* -------------------------------- Main Logo */
+
+.main-logo-link {
+    font-family: 'Raleway', sans-serif;
+    width: fit-content;
+}
+
+.main-logo-link:hover {
     color: #000;
 }
+
+.main-logo-link-leftfield {
+    letter-spacing: 2px !important;
+    font-weight: 800;
+}
+
+.main-logo-link-clothing {
+    letter-spacing: 13.8px !important;
+    margin: -5px 0 0 1px !important;
+    font-weight: 200;
+}
+
+/* -------------------------------- Media Queries */
+
+
+@media (min-width: 1200px) {
+    /* Slightly larger container on xl screens */
+    .container {
+      max-width: 80%;
+    }
+  }
