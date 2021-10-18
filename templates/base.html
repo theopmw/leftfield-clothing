@@ -38,7 +38,7 @@
 
     <title>Leftfield Clothing {% block extra_title %}{% endblock %}</title>
     </head>
-    <body>
+    <body class="d-flex flex-column min-vh-100">
         <header class="container-fluid fixed-top">
             <div id="delivery-banner" class="row text-center">
                 <div class="col bg-black text-white uppercase">
@@ -127,6 +127,62 @@
                 </nav>
             </div>
         </header>
+        <main>
+
+        </main>
+        <footer class="mt-auto">
+            <div class="container-fluid footer-container">
+                <div class="row bg-white pt-lg-2 footer-logo-row">
+                    <!-- Logo -->
+                    <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                        <a href="{% url 'home' %}" class="nav-link main-logo-link uppercase text-black">
+                            <h2 class="my-0 main-logo-link-leftfield">Leftfield</h2>
+                            <h6 class="my-0 main-logo-link-clothing">Clothing</h6>
+                        </a>
+                    </div>
+                </div>
+                <div class="row bg-white pt-lg-2">
+                        <!-- Contact us -->
+                    <div class="contact-us col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                        <h5 class="pl-lg-3 font-raleway uppercase">Contact Us</h5>
+                        <p class="pl-lg-3 text-muted">+44 (0)000 000 0000</p>
+                    </div>
+                    <!-- Links -->
+                    <div class="footer-links col-12 col-lg-4 my-auto py-1 py-lg-0 text-center">
+                        <h5 class=" font-raleway uppercase">LINKS</h5>
+                        <a href=""><p class=" text-muted">Add link here</p></a>
+                    </div>
+                    <!-- Social links -->
+                    <div class="social-links col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-right align-top">
+                        <ul class="list-inline pr-lg-3 pb-4">
+                            <li class="list-inline-item px-4">
+                                <a class="text-black" href="https://www.facebook.com/" target="_blank"
+                                    rel="noopener"><i class="fab fa-facebook-f" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item px-4">
+                                <a class="text-black" href="https://www.instagram.com/" target="_blank"
+                                    rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item px-4 px-lg-0 pl-lg-4">
+                                <a class="text-black" href="https://twitter.com/home" target="_blank"
+                                    rel="noopener"><i class="fab fa-twitter" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row bg-white pt-lg-4">
+                    <div class="col">
+                        <div class="copyright-text text-center">&copy; <span id="year"></span> | Leftfield Clothing | All Rights Reserved</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </footer>
 
         {% if messages %}
             <div class="message-container"></div>
@@ -139,6 +195,7 @@
         {% endblock %}
 
         {% block postloadjs %}
+        <script>$("#year").html(new Date().getFullYear());</script>
         {% endblock %}
 
     </body>

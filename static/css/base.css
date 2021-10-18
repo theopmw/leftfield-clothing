@@ -65,7 +65,7 @@
 
 .main-logo-link-clothing {
     letter-spacing: 13.8px !important;
-    margin: -5px 0 0 9px !important;
+    margin: -5px 0 0 11px !important;
     font-weight: 200;
 }
 
@@ -105,6 +105,25 @@
     font-size: 18px;
 }
 
+/* -------------------------------- Footer */
+
+/* .footer-logo-row {
+    border-bottom: solid 1px #000;
+} */
+
+/* --------------------- Contact us */
+
+.contact-us {
+    padding-right: 20px !important;
+}
+
+/* --------------------- Social links */
+
+.social-links {
+    font-size: 20px;
+}
+
+
 /* -------------------------------- Media Queries */
 
 @media (min-width: 768px) {
@@ -133,7 +152,7 @@
     } */
 
     .main-logo-link-clothing {
-        margin: -5px 0 0 1px !important;
+        margin: -5px 0 0 2px !important;
         /* letter-spacing: 13.8px !important; */
         /* margin: -5px 0 0 1px !important; */
         /* font-weight: 200; */
