@@ -40,6 +40,7 @@
     </head>
     <body class="d-flex flex-column min-vh-100">
         <header class="container-fluid fixed-top">
+            <!-- Delivery banner -->
             <div id="delivery-banner" class="row text-center">
                 <div class="col bg-black text-white uppercase">
                     <h4 class="font-raleway my-1">Free delivery on orders over £{{ free_shipping_threshold }}!</h4>                
@@ -119,6 +120,7 @@
                     </a>
                 </div>
                 <nav class="navbar navbar-expand-lg navbar-light w-100 px-2">
+                    <!-- Navbar toggler -->
                     <button class="navbar-toggler custom-toggler rounded-0" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -155,16 +157,19 @@
                     <!-- Social links -->
                     <div class="social-links col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-right align-top">
                         <ul class="list-inline pr-lg-3 pb-4">
+                            <!-- Facebook link -->
                             <li class="list-inline-item px-4">
                                 <a class="text-black" href="https://www.facebook.com/" target="_blank"
                                     rel="noopener"><i class="fab fa-facebook-f" aria-hidden="true"></i>
                                 </a>
                             </li>
+                            <!-- Instagram link -->
                             <li class="list-inline-item px-4">
                                 <a class="text-black" href="https://www.instagram.com/" target="_blank"
                                     rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i>
                                 </a>
                             </li>
+                            <!-- Twitter link -->
                             <li class="list-inline-item px-4 px-lg-0 pl-lg-4">
                                 <a class="text-black" href="https://twitter.com/home" target="_blank"
                                     rel="noopener"><i class="fab fa-twitter" aria-hidden="true"></i>
@@ -173,15 +178,13 @@
                         </ul>
                     </div>
                 </div>
+                <!-- Copyright -->
                 <div class="row bg-white pt-lg-4">
                     <div class="col">
                         <div class="copyright-text text-center">&copy; <span id="year"></span> | Leftfield Clothing | All Rights Reserved</div>
                     </div>
                 </div>
             </div>
-
-
-
         </footer>
 
         {% if messages %}
@@ -195,6 +198,7 @@
         {% endblock %}
 
         {% block postloadjs %}
+        <!-- Dispaly current year in footer copyright -->
         <script>$("#year").html(new Date().getFullYear());</script>
         {% endblock %}
 
