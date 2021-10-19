@@ -1,4 +1,10 @@
+/* Allows h-100 classes and vertical centering to work */
+html {
+    height: 100%;
+}
+
 /* from Bulma */
+/* Ensures Font Awesome icons stay centered and have a consistent size */
 .icon {
     align-items: center;
     display: inline-flex;
@@ -25,13 +31,41 @@
     font-family: 'Raleway', sans-serif;
 }
 
+/* -------------------------------- General spacing */
+
+.header-container {
+    padding-top: 11.5rem;
+}
+
 /* -------------------------------- Buttons */
+
+.shop-now-button {
+    background: black;
+    color: white;
+    min-width: 260px;
+}
 
 .btn-black {
     background: black;
     color: white;
 }
 
+.btn-outline-black {
+    background: white;
+    color: black !important; /* use important to override link colors for <a> elements */
+    border: 1px solid black;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: black;
+    color: white !important;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
@@ -156,6 +190,10 @@
         /* letter-spacing: 13.8px !important; */
         /* margin: -5px 0 0 1px !important; */
         /* font-weight: 200; */
+    }
+
+    .header-container {
+        padding-top: 10.5rem;
     }
 
 }
