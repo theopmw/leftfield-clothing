@@ -15,7 +15,7 @@ def get_subcategory(request):
     # Get category id from DB based on dropdown selection
     category = request.GET.get('id')
     print("CATEGORY: ", category)
-
+    # Filter subcategories based on the category select box value
     result = list(SubCategory.objects.filter(
         category_id=int(category)).values('category', 'name'))
     print("GET RESULT: ", result)
