@@ -1,4 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
+from django.db.models import Q
 from .models import Product, SubCategory, Category
 from django.http import HttpResponse
 import json
@@ -27,6 +29,25 @@ def all_products(request):
     View to show all products, including sorting and search queries.
     """
     products = Product.objects.all()
+
+    # Check if request.GET exists
+    if request.GET:
+        # Check if 'q' is in request.GET 
+        # (text input in the search form is named 'q')
+        if 'q' in request.GET:
+            query = request.GET['q']
+            # If query is blank attach an error message to the request
+            # using Django messages and redirect back to the products url
+            if not query:
+                messages.error(request, "You didn't enter any search critera!")
+                return redirect(reverse('products'))
+
+            # If query isn't blank, use Q to generate a search query
+            queries = Q(
+                name__icontains=query) | Q(
+                    brand__icontains=query) | Q(
+                        description__icontains=query)
+            products = products.filter(queries)
 
     context = {
         'products': products,
