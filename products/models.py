@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+
 # Code for models for 3 tables modified from:
 # https://betterprogramming.pub/optimizing-django-admin-6a1187ddbb09 &
 # https://stackoverflow.com/questions/47843241/django-admin-how-to-populate-select-options-depending-on-another-select
