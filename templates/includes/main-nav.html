@@ -18,12 +18,12 @@
                 Clothing
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item pl-lg-2">All Clothing</a>
-                <a href="" class="dropdown-item pl-lg-2">T-Shirts</a>
-                <a href="" class="dropdown-item pl-lg-2">Shirts</a>
-                <a href="" class="dropdown-item pl-lg-2">Sweatshirts &amp; Hoodies</a>
-                <a href="" class="dropdown-item pl-lg-2">Coats &amp; Jackets</a>
-                <a href="" class="dropdown-item pl-lg-2">Jeans &amp; Trousers</a>
+                <a href="{% url 'products' %}?category=clothing" class="dropdown-item pl-lg-2">All Clothing</a>
+                <a href="{% url 'products' %}?subcategory=t_shirts" class="dropdown-item pl-lg-2">T-Shirts</a>
+                <a href="{% url 'products' %}?subcategory=shirts" class="dropdown-item pl-lg-2">Shirts</a>
+                <a href="{% url 'products' %}?subcategory=sweatshirts_hoodies" class="dropdown-item pl-lg-2">Sweatshirts &amp; Hoodies</a>
+                <a href="{% url 'products' %}?subcategory=coats_jackets" class="dropdown-item pl-lg-2">Coats &amp; Jackets</a>
+                <a href="{% url 'products' %}?subcategory=jeans_trousers" class="dropdown-item pl-lg-2">Jeans &amp; Trousers</a>
             </div>
         </li>
 
@@ -32,10 +32,10 @@
                 Footwear
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="footwear-link">
-                <a href="" class="dropdown-item pl-lg-2">All Footwear</a>
-                <a href="" class="dropdown-item pl-lg-2">Trainers</a>
-                <a href="" class="dropdown-item pl-lg-2">Boots</a>
-                <a href="" class="dropdown-item pl-lg-2">Shoes</a>
+                <a href="{% url 'products' %}?category=footwear" class="dropdown-item pl-lg-2">All Footwear</a>
+                <a href="{% url 'products' %}?subcategory=trainers" class="dropdown-item pl-lg-2">Trainers</a>
+                <a href="{% url 'products' %}?subcategory=boots" class="dropdown-item pl-lg-2">Boots</a>
+                <a href="{% url 'products' %}?subcategory=shoes" class="dropdown-item pl-lg-2">Shoes</a>
             </div>
         </li>
 
@@ -44,10 +44,10 @@
                 Accessories
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="accessories-link">
-                <a href="" class="dropdown-item pl-lg-2">All Accessories</a>
-                <a href="" class="dropdown-item pl-lg-2">Bags</a>
-                <a href="" class="dropdown-item pl-lg-2">Hats</a>
-                <a href="" class="dropdown-item pl-lg-2">Socks</a>
+                <a href="{% url 'products' %}?category=accessories" class="dropdown-item pl-lg-2">All Accessories</a>
+                <a href="{% url 'products' %}?subcategory=bags" class="dropdown-item pl-lg-2">Bags</a>
+                <a href="{% url 'products' %}?subcategory=hats" class="dropdown-item pl-lg-2">Hats</a>
+                <a href="{% url 'products' %}?subcategory=socks" class="dropdown-item pl-lg-2">Socks</a>
             </div>
         </li>
 

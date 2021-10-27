@@ -29,9 +29,31 @@ def all_products(request):
     View to show all products, including sorting and search queries.
     """
     products = Product.objects.all()
+    query = None
+    categories = None
+    subcategories = None
+
 
     # Check if request.GET exists
     if request.GET:
+        # Check if category exists in request.GET
+        if 'category' in request.GET:
+            # Get category
+            categories = request.GET['category'].split(',')
+            print("CATEGORIES: ", categories)
+            # Filter products that belong to the category
+            products = products.filter(category__name__in=categories)
+            print("PRODUCTS: ", products)
+            categories = Category.objects.filter(name__in=categories)
+
+        # Check if subcategory exists in request.GET
+        if 'subcategory' in request.GET:
+            subcategories = request.GET['subcategory'].split(',')
+            print("SUBCATEGORIES: ", subcategories)
+            products = products.filter(subcategory__name__in=subcategories)
+            print("PRODUCTS: ", products)
+            subcategories = SubCategory.objects.filter(name__in=subcategories)
+
         # Check if 'q' is in request.GET 
         # (text input in the search form is named 'q')
         if 'q' in request.GET:
@@ -51,11 +73,16 @@ def all_products(request):
 
     context = {
         'products': products,
+        'search_term': query,
+        'current_categories': categories,
+        'current_subcategories': subcategories,
     }
 
     return render(request, 'products/products.html', context)
 
 
+# Credit view to handle slug instead of id modified from:
+# https://stackoverflow.com/questions/63481787/how-to-display-uniquely-generated-slugs-in-urls
 def product_detail(request, slug=None):
     """
     View to show individual product details.
