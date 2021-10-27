@@ -29,11 +29,24 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container mb-5 mt-md-5">
                     <p class="mb-0">{{ product.name }}</p>
+                    <p class="small mb-0 text-left text-muted">{{ product.brand }}</p>
+                    <!-- {% if product.brand %}
+                        <p class="small mt-1 mb-0">
+                            <a class="text-muted" href="{% url 'products' %}?brand={{ product.brand }}">{{ product.brand }}</a>
+                        </p>
+                    {% endif %} -->
                     <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
                     {% if product.rating %}
                         <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                     {% else %}
                         <small class="text-muted">No Rating</small>
+                    {% endif %}
+                    {% if product.subcategory %}
+                        <p class="small mt-1 mb-0">
+                            <a class="text-muted" href="{% url 'products' %}?subcategory={{ product.subcategory.name }}">
+                                <i class="fas fa-tags mr-1"></i>{{ product.subcategory.friendly_name }}
+                            </a>
+                        </p>
                     {% endif %}
                     <p class="mt-3">{{ product.description }}</p>
                 </div>
