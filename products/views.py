@@ -38,17 +38,25 @@ def all_products(request):
 
     # Check if request.GET exists
     if request.GET:
+        # Check if sort is in request.GET
         if 'sort' in request.GET:
+            # If it is set it to sort and sortkey
             sortkey = request.GET['sort']
             sort = sortkey
             if sortkey == 'name':
+                # Rename sortkey to lower_name in event user is sorting by name
                 sortkey = 'lower_name'
+                # Annotate current list of products with a new field
                 products = products.annotate(lower_name=Lower('name'))
 
             if 'direction' in request.GET:
                 direction = request.GET['direction']
+                # Check if direction is descending
                 if direction == 'desc':
+                    # If it is descending add '-' in front of sortkey
+                    # using string formatting to reverse order
                     sortkey = f'-{sortkey}'
+            # Use order_by model method to sort products
             products = products.order_by(sortkey)
 
 
@@ -89,6 +97,7 @@ def all_products(request):
                         description__icontains=query)
             products = products.filter(queries)
 
+    # Return current sorting methodology to template
     current_sorting = f'{sort}_{direction}'
 
     context = {
