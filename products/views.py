@@ -32,10 +32,26 @@ def all_products(request):
     query = None
     categories = None
     subcategories = None
+    sort = None
+    direction = None
 
 
     # Check if request.GET exists
     if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            products = products.order_by(sortkey)
+
+
         # Check if category exists in request.GET
         if 'category' in request.GET:
             # Get category
@@ -48,8 +64,10 @@ def all_products(request):
 
         # Check if subcategory exists in request.GET
         if 'subcategory' in request.GET:
+            # Get subcategory
             subcategories = request.GET['subcategory'].split(',')
             print("SUBCATEGORIES: ", subcategories)
+            # Filter products that belong to the subcategory
             products = products.filter(subcategory__name__in=subcategories)
             print("PRODUCTS: ", products)
             subcategories = SubCategory.objects.filter(name__in=subcategories)
@@ -71,11 +89,14 @@ def all_products(request):
                         description__icontains=query)
             products = products.filter(queries)
 
+    current_sorting = f'{sort}_{direction}'
+
     context = {
         'products': products,
         'search_term': query,
         'current_categories': categories,
         'current_subcategories': subcategories,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/products.html', context)
