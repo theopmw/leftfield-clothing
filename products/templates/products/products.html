@@ -13,8 +13,18 @@
 <div class="overlay"></div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col text-center mt-3">
-                <h2 class="font-raleway">Products</h2>
+            <div class="col text-center mt-3 text-uppercase">
+                    {% if current_categories %}
+                        {% for category in current_categories %}
+                            <h2 class="font-raleway">All {{ category.friendly_name }}</h2>
+                        {% endfor %}
+                    {% elif current_subcategories %}
+                        {% for subcategory in current_subcategories %}
+                            <h2 class="font-raleway">{{ subcategory.friendly_name }}</h2>
+                        {% endfor %}
+                    {% else %}
+                        <h2 class="font-raleway">All Products</h2>
+                    {% endif %}
                 <hr class="w-50 mb-1">
             </div>
         </div>
@@ -26,6 +36,8 @@
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div class="card h-100 border-0">
                                 {% if product.image %}
+                                <!-- Credit build links with slugs modifed from
+                                https://stackoverflow.com/questions/63481787/how-to-display-uniquely-generated-slugs-in-urls -->
                                 <a href="{% url 'product_detail' product.slug %}">
                                     <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                                 </a>
