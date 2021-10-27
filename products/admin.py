@@ -17,18 +17,23 @@ class ProductAdmin(admin.ModelAdmin):
 
     ordering = ('sku',)
 
+
 class SubCategoryAdmin(admin.ModelAdmin):
     list_display = (
+        'friendly_name',
         'name',
         'slug',
         'category',
     )
 
+
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
+        'friendly_name',
         'name',
         'slug',
     )
+
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(SubCategory, SubCategoryAdmin)
