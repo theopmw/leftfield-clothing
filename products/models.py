@@ -11,6 +11,7 @@ class Category(models.Model):
     Model for Category table
     """
     name = models.CharField(max_length=254, db_index=True)
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
     slug = models.SlugField(
         max_length=150, unique=True, db_index=True, default='NULL')
 
@@ -21,6 +22,9 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    def get_friendly_name(self):
+        return self.friendly_name
+
 
 class SubCategory(models.Model):
     """
@@ -30,6 +34,7 @@ class SubCategory(models.Model):
         'Category', related_name='subcategories',
         on_delete=models.CASCADE)
     name = models.CharField(max_length=254, db_index=True)
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
     slug = models.SlugField(
         max_length=150, unique=True, db_index=True, default='NULL')
 
@@ -39,6 +44,9 @@ class SubCategory(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_friendly_name(self):
+        return self.friendly_name
 
 
 class Product(models.Model):
