@@ -236,3 +236,26 @@
         </div>
     </div>
 {% endblock %}
+
+{% block postloadjs %}
+<script>
+    // Add active class to category or subcategory
+    const items = document.querySelectorAll('#items a')
+    items.forEach(item => {
+        if (location.href.includes('?category')) {
+            if (item.href.includes('?category')) {
+                const span = item.querySelector('span')
+                span.classList.add('active')
+            }
+        }
+        else {
+            const subcat = location.href.split('subcategory=')[1];
+            if (item.href.endsWith("=" + subcat)) {
+                const span = item.querySelector('span')
+                span.classList.add('active')
+            }
+        }
+    });
+</script>
+{% endblock %}
+

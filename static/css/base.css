@@ -8,6 +8,7 @@
 }
 
 
+
 /* Allows h-100 classes and vertical centering to work */
 html {
     height: 100%;
@@ -91,6 +92,16 @@ html {
 .btn-black:focus {
     background: #222;
     color: white;
+}
+
+a.subcategory-badge > span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
+}
+
+.active {
+    background: #212529 !important;
+    color:#fff !important;
 }
 
 /* -------------------------------- Borders */
@@ -218,3 +229,7 @@ html {
 
 }
 
+/* .active {
+    background: #212529 !important;
+    color:#fff !important;
+} */
