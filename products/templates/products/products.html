@@ -29,7 +29,111 @@
             </div>
         </div>
         <div class="row">
-            <div id="items" class="col text-center mt-3">  
+            <div id="items" class="col text-center mt-3">
+                {% for category in current_categories %}
+                    {% if category.name == "clothing" %}
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=clothing">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">All Clothing</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=t_shirts">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">T-Shirts</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=shirts">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Shirts</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=sweatshirts_hoodies">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Sweatshirts & Hoodies</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=coats_jackets">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Coats & Jackets</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=jeans_trousers">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Jeans & Trousers</span>
+                        </a>
+                    {% elif category.name == "footwear" %}
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=footwear">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">All Footwear</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=trainers">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Trainers</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=boots">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Boots</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=shoes">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Shoes</span>
+                        </a>
+                    {% elif current_categories is accessories %}
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=accessories">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">All Accessories</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=bags">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Bags</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=hats">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Hats</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=socks">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Socks</span>
+                        </a>
+                    {% elif current_categories is special_offers %}
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=special_offers">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">SPECIAL OFFERS TEST BUTTON</span>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+                {% for subcategory in current_subcategories %}
+                {% if subcategory.category.name == "clothing" %}
+                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=clothing">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">All Clothing</span>
+                    </a>
+                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=t_shirts">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">T-Shirts</span>
+                    </a>
+                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=shirts">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Shirts</span>
+                    </a>
+                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=sweatshirts_hoodies">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Sweatshirts & Hoodies</span>
+                    </a>
+                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=coats_jackets">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Coats & Jackets</span>
+                    </a>
+                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=jeans_trousers">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Jeans & Trousers</span>
+                    </a>
+                {% elif subcategory.category.name == "footwear" %}
+                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=footwear">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">All Footwear</span>
+                    </a>
+                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=trainers">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Trainers</span>
+                    </a>
+                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=boots">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Boots</span>
+                    </a>
+                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=shoes">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Shoes</span>
+                    </a>
+                    {% elif current_categories is accessories %}
+                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=accessories">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">All Accessories</span>
+                    </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=bags">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Bags</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=hats">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Hats</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=socks">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Socks</span>
+                        </a>
+                    {% elif current_categories is special_offers %}
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=special_offers">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">SPECIAL OFFERS TEST BUTTON</span>
+                        </a>
+                    {% endif %}
+                {% endfor %} 
             </div>
         </div>
         <div class="row">
