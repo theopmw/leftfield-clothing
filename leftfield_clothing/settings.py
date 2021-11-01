@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'products',
+    'bag',
 
     # consider adding later to link social accounts:
     # 'allauth.socialaccount.providers.facebook',
