@@ -1,5 +1,8 @@
 from decimal import Decimal
 from django.conf import settings
+from django.shortcuts import get_object_or_404
+from products.models import Product
+
 
 def bag_contents(request):
 
@@ -8,9 +11,30 @@ def bag_contents(request):
     # Initialize total and product_count to 0
     total = 0
     product_count = 0
+    # Check if there is a bag variable in the session
+    # or initalize it to an empty dictionary there isn't
+    bag = request.session.get('bag', {})
+
+    # For each item and quantity in bag.items from the current session
+    for item_id, quantity in bag.items():
+        # Get the product
+        product = get_object_or_404(Product, pk=item_id)
+        # Add its quantity * price to the total
+        total += quantity * product.price
+        # Increment product_count by the quantity
+        product_count += quantity
+        # Add dictionary to list of bag items containing
+        # the id, quantity and also the product object (to give access to all
+        # other fields of the product, image etc.) when iterating through
+        # bag items in the templates
+        bag_items.append({
+            'item_id': item_id,
+            'quantity': quantity,
+            'product': product,
+        })
 
     # Set delivery cost based on total bag contents
-    # Calculate delivery if bag contents is not 0 
+    # Calculate delivery if bag contents is not 0
     # and less than FREE_DELIVERY_THRESHOLD
     if total > 0 and total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = settings.STANDARD_DELIVERY_PRICE
