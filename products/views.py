@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+from django.db.models.functions import Lower
 from .models import Product, SubCategory, Category
 from django.http import HttpResponse
 import json
@@ -59,7 +60,6 @@ def all_products(request):
             # Use order_by model method to sort products
             products = products.order_by(sortkey)
 
-
         # Check if category exists in request.GET
         if 'category' in request.GET:
             # Get category
@@ -80,7 +80,7 @@ def all_products(request):
             print("PRODUCTS: ", products)
             subcategories = SubCategory.objects.filter(name__in=subcategories)
 
-        # Check if 'q' is in request.GET 
+        # Check if 'q' is in request.GET
         # (text input in the search form is named 'q')
         if 'q' in request.GET:
             query = request.GET['q']
