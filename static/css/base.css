@@ -94,6 +94,8 @@ html {
     color: white;
 }
 
+/* --------------------- Category/subcategory buttons  */
+
 a.subcategory-badge > span.badge:hover {
     background: #212529 !important;
     color: #fff !important;
@@ -103,6 +105,8 @@ a.subcategory-badge > span.badge:hover {
     background: #212529 !important;
     color:#fff !important;
 }
+
+
 
 /* --------------------- Back to top button */
 
