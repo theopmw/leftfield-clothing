@@ -10,6 +10,8 @@ from . import views
 
 urlpatterns = [
     path('', views.all_products, name='products'),
+    # Credit to use slug instead of id in url pattern modified from:
+    # https://stackoverflow.com/questions/63481787/how-to-display-uniquely-generated-slugs-in-urls
     path('<slug>/', views.product_detail, name='product_detail'),
     # re_path(r'^getSubcategory/$', views.get_subcategory),
     ]
