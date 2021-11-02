@@ -36,7 +36,6 @@ def all_products(request):
     sort = None
     direction = None
 
-
     # Check if request.GET exists
     if request.GET:
         # Check if sort is in request.GET

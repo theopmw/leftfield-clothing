@@ -52,25 +52,84 @@
                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
-                            <div class="col-12">
-                                <p class="mt-3"><strong>Quantity:</strong></p>
-                                <div class="form-group w-50">
-                                    <div class="input-group">
-                                        <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                            {% with product.has_sizes as s %}
+                                <h1>{{ product.subcategory.name }}</h1>
+                                {% if s %}
+                                    <!-- Jeans & trousers product sizes -->
+                                    {% if product.subcategory.name == "jeans_trousers" %}
+                                        <div class="col-12">
+                                            <p><strong>Size:</strong></p>
+                                            <select id="id_product_size" class="form-control rounded-0 w-50" name="product_size">
+                                                <option value="30x30">30" x 30"</option>
+                                                <option value="30x32">30" x 32"</option>
+                                                <option value="30x34">30" x 34"</option>
+                                                <option value="32x30">32" x 30"</option>
+                                                <option value="32x32" selected>32" x 32"</option>
+                                                <option value="32x34">32" x 34"</option>
+                                                <option value="34x30">34" x 30"</option>
+                                                <option value="34x32">34" x 32"</option>
+                                                <option value="34x34">34" x 34"</option>
+                                                <option value="36x30">36" x 30"</option>
+                                                <option value="36x32">36" x 32"</option>
+                                                <option value="36x34">36" x 34"</option>
+                                            </select>
+                                        </div>
+                                    <!-- Footwear product sizes -->
+                                    {% elif product.category.name == "footwear" %}
+                                        <div class="col-12">
+                                            <p><strong>Size:</strong></p>
+                                            <select id="id_product_size" class="form-control rounded-0 w-50" name="product_size">
+                                                <option value="6">6</option>
+                                                <option value="6.5">6.5</option>
+                                                <option value="7">7</option>
+                                                <option value="7.5">7.5</option>
+                                                <option value="8">8</option>
+                                                <option value="8.5">8.5</option>
+                                                <option value="9">9</option>
+                                                <option value="9.5">9.5</option>
+                                                <option value="10" selected>10</option>
+                                                <option value="10.5">10.5</option>
+                                                <option value="11">11</option>
+                                                <option value="11.5">11.5</option>
+                                                <option value="12">12</option>
+                                                <option value="12.5">12.5</option>
+                                                <option value="13">13</option>
+                                            </select>
+                                        </div>
+                                    <!-- Clothing product sizes  -->
+                                    {% else %}
+                                        <div class="col-12">
+                                            <p><strong>Size:</strong></p>
+                                            <select id="id_product_size" class="form-control rounded-0 w-50" name="product_size">
+                                                <option value="xs">XS</option>
+                                                <option value="s">S</option>
+                                                <option value="m" selected>M</option>
+                                                <option value="l">L</option>
+                                                <option value="xl">XL</option>
+                                            </select>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                                <div class="col-12">
+                                    <p class="mt-3"><strong>Quantity:</strong></p>
+                                    <div class="form-group w-50">
+                                        <div class="input-group">
+                                            <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="col-12">
-                                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
-                                    <span class="icon">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="font-raleway text-uppercase">Keep Shopping</span>
-                                </a>
-                                <input type="submit" class="btn btn-black rounded-0 font-raleway text-uppercase mt-5" value="Add to Bag">
-                            </div>
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                <div class="col{% if s %}-12 mt-2{% endif %}">
+                                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
+                                        <span class="icon">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </span>
+                                        <span class="font-raleway text-uppercase">Keep Shopping</span>
+                                    </a>
+                                    <input type="submit" class="btn btn-black rounded-0 font-raleway text-uppercase mt-5" value="Add to Bag">
+                                </div>
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            {% endwith %}
                         </div>
                     </form>
                 </div>
