@@ -53,7 +53,6 @@
                         {% csrf_token %}
                         <div class="form-row">
                             {% with product.has_sizes as s %}
-                                <h1>{{ product.subcategory.name }}</h1>
                                 {% if s %}
                                     <!-- Jeans & trousers product sizes -->
                                     {% if product.subcategory.name == "jeans_trousers" %}
