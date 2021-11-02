@@ -106,7 +106,20 @@ a.subcategory-badge > span.badge:hover {
     color:#fff !important;
 }
 
+/* --------------------- Update/remove item buttons  */
 
+a.update-link > span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
+    cursor: pointer;
+}
+
+a.remove-item > span.badge:hover {
+    background: #d9534f !important;
+    border-color: #d9534f !important;
+    color: #fff !important;
+    cursor: pointer;
+}
 
 /* --------------------- Back to top button */
 
