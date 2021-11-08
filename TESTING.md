@@ -170,3 +170,33 @@ Code snippet with both loops:
 
 ```
 
+## Known bugs & issues
+
+- ### Delivery cost remaining in admin if all line items are removed
+
+If products are removed via the admin panel to set the order total at £0.00, the delivery cost still remains on the order in the admin.
+
+![Delivery cost bug](media/testing_screenshots/delivery_cost_bug.png)
+
+The code that causes this is from the update_total function in the checkout app [models.py](checkout/models.py) file.
+
+The following code snippet illustrates that the bug is caused by the STANDARD_DELIVERY_PRICE being applied to any order total that is below the FREE_DELIVERY_THRESHOLD, even if that total is £0.00.
+
+```
+def update_total(self):
+        """
+        Update grand total each time a line item is added,
+        accounting for delivery costs.
+        """
+        self.order_total = self.lineitems.aggregate(
+            Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
+            self.delivery_cost = (
+                settings.STANDARD_DELIVERY_PRICE)
+        else:
+            self.delivery_cost = 0
+        self.grand_total = self.order_total + self.delivery_cost
+        self.save()
+```
+
+Since the user is unable to create an order of £0.00 this should not cause eny errors or issues for the user when placing an order or allow any delivery charges to be made to the users account without making a purchase that is below the free delivery threshold (£50.00) but greater than £0.00.
