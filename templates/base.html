@@ -86,13 +86,13 @@
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
-                                        <a href="" class="dropdown-item pr-3">Product Management</a>
+                                        <a href="" class="dropdown-item pl-3">Product Management</a>
                                     {% endif %}
-                                    <a href="" class="dropdown-item pr-3">Profile</a>
-                                    <a href="{% url 'account_logout' %} pr-3" class="dropdown-item">Logout</a>
+                                    <a href="{% url 'profile' %}" class="dropdown-item pl-3">Profile</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item pl-3">Logout</a>
                                 {% else %}
-                                    <a href="{% url 'account_signup' %} pr-3" class="dropdown-item">Register</a>
-                                    <a href="{% url 'account_login' %} pr-3" class="dropdown-item">Login</a>
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item pl-3">Register</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item pl-3">Login</a>
                                 {% endif %}
                             </div>
                         </li>
