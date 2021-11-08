@@ -57,7 +57,12 @@ def checkout(request):
         # If form is valid:
         if order_form.is_valid():
             # Save the form
-            order = order_form.save()
+            order = order_form.save(commit=False)
+            # Get payment intent id
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_bag = json.dumps(bag)
+            order.save()
             # Iterate through bag items to create each line item
             for item_id, item_data in bag.items():
                 try:
