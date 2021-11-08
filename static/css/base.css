@@ -164,6 +164,12 @@ a.remove-item > span.badge:hover {
     font-weight: 200;
 }
 
+/* --------------------- Search bar */
+
+input[name='q']::placeholder {
+    color: #aab7c4;
+}
+
 /* --------------------- Navbar toggler */
 
 /* Code for changing Bootstrap navbar toggler taken from https://www.geeksforgeeks.org/how-to-change-hamburger-toggler-color-in-bootstrap/ */
