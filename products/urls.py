@@ -14,4 +14,5 @@ urlpatterns = [
     # https://stackoverflow.com/questions/63481787/how-to-display-uniquely-generated-slugs-in-urls
     path('<slug>/', views.product_detail, name='product_detail'),
     # re_path(r'^getSubcategory/$', views.get_subcategory),
+    path('add/', views.add_product, name='add_product'),
     ]
