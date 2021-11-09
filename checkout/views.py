@@ -178,27 +178,29 @@ def checkout_success(request, order_number):
     # checkout view and send back to the template
     order = get_object_or_404(Order, order_number=order_number)
 
-    # Check if user is authenticated
-    profile = UserProfile.objects.get(user=request.user)
-    # Attach the user's profile to the order
-    order.user_profile = profile
-    # Save order
-    order.save()
+     # Check if user is authenticated
+    if request.user.is_authenticated:
+        # Get user profile
+        profile = UserProfile.objects.get(user=request.user)
+        # Attach the user's profile to the order
+        order.user_profile = profile
+        # Save order
+        order.save()
 
-    # Save the user's info
-    if save_info:
-        profile_data = {
-            'default_phone_number': order.phone_number,
-            'default_country': order.country,
-            'default_postcode': order.postcode,
-            'default_town_or_city': order.town_or_city,
-            'default_street_address1': order.street_address1,
-            'default_street_address2': order.street_address2,
-            'default_county': order.county,
-        }
-        user_profile_form = UserProfileForm(profile_data, instance=profile)
-        if user_profile_form.is_valid():
-            user_profile_form.save()
+        # Save the user's info
+        if save_info:
+            profile_data = {
+                'default_phone_number': order.phone_number,
+                'default_country': order.country,
+                'default_postcode': order.postcode,
+                'default_town_or_city': order.town_or_city,
+                'default_street_address1': order.street_address1,
+                'default_street_address2': order.street_address2,
+                'default_county': order.county,
+            }
+            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
 
     # Attach success message to notify user of their order number
     # and that email will be sent
