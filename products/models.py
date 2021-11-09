@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 
 # Create your models here.
 
@@ -44,7 +45,7 @@ class SubCategory(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     def get_friendly_name(self):
         return self.friendly_name
 
@@ -53,6 +54,11 @@ class Product(models.Model):
     """
     Model for Product table
     """
+    # Credit for get_absolute_url object taken from:
+    # https://wellfire.co/learn/fast-and-beautiful-urls-with-django/
+    def get_absolute_url(self):
+        return reverse('product', kwargs={'slug': self.slug, 'id':self.id})
+
     name = models.CharField(max_length=254, db_index=True)
     slug = models.SlugField(
         max_length=150, unique=True, db_index=True, default='NULL')

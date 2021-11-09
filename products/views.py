@@ -8,6 +8,8 @@ from django.http import HttpResponse
 
 import json
 
+from django.db.models import Lookup
+
 
 # Code for view modified from:
 # https://betterprogramming.pub/optimizing-django-admin-6a1187ddbb09 &
@@ -112,13 +114,30 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
+# Credit for get_redirected view taken from:
+# https://wellfire.co/learn/fast-and-beautiful-urls-with-django/
+def get_redirected(queryset_or_class, lookups, validators):
+    """
+    Calls get_object_or_404 and conditionally builds redirect URL
+    """
+    obj = get_object_or_404(queryset_or_class, **lookups)
+    for key, value in validators.items():
+        if value != getattr(obj, key):
+            return obj, obj.get_absolute_url()
+    return obj, None
+
+
 # Credit view to handle slug instead of id modified from:
 # https://stackoverflow.com/questions/63481787/how-to-display-uniquely-generated-slugs-in-urls
-def product_detail(request, slug=None):
+# Credit view to build url using slug and product_id parameters modified from:
+# https://wellfire.co/learn/fast-and-beautiful-urls-with-django/
+def product_detail(request, slug, product_id):
     """
     View to show individual product details.
     """
-    product = get_object_or_404(Product, slug=slug)
+    product, product_url = get_redirected(Product, {'pk': product_id}, {'slug': slug})
+    if product_url:
+        return redirect(product_url)
 
     context = {
         'product': product,
