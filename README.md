@@ -109,3 +109,7 @@ Possible additions:
 * [Am I Responsive](http://ami.responsivedesign.is/) - **Am I Responsive** was used to test page layouts during the build process.
 [GMail](https://gmail.com) - **Gmail** was used to provide the SMPT server, allowing the application to handle emails.
 * [PostgreSQL](https://www.postgresql.org/) - **PostgreSQL used for the relational database, hosted and deployed via Heroku.
+
+## Testing
+
+Detailed testing information can be found in separate [TESTING.md](https://github.com/theopmw/leftfield-clothing/blob/main/TESTING.md) file.
