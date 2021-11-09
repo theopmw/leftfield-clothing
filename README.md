@@ -79,3 +79,33 @@ Possible additions:
 - [x] See which products are being viewed the most
 
 - [x] See product sales volumes to see which products are selling best
+
+## Technologies Used
+
+### Languages Used
+
+* HTML
+* CSS
+* JavaScript
+* Python
+
+### Frameworks & Libraries and Tools Used
+
+* [Gitpod](https://gitpod.io/) - **Gitpod** was used for the IDE while building the website.
+* [Git](https://git-scm.com/) - **Git** was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+* [GitHub](https://github.com/) - **GitHub** is used to store the projects code after being pushed from Git.
+* [Heroku](https://id.heroku.com/login) - **Heroku** was used as the deployment platform for this project.
+* [Bootstrap 4](https://getbootstrap.com/) - **Bootstrap** was used to assist with the responsiveness and styling of the website.
+* [JQuery](https://jquery.com/) - **JQuery** JavaScript library was used to simplify JavaScript code.
+* [Django](https://www.djangoproject.com/) - **Django** high-level Python web framework was used to speed up and simplify the application build.
+* [Stripe](https://stripe.com/en-gb) - **Stripe** was used to process online payments and webhooks.
+* [AWS](https://aws.amazon.com/?nc2=h_lg) - **AWS** used for storage of static and media files using [S3](https://aws.amazon.com/s3/) and [IAM](https://aws.amazon.com/iam/) services.
+* [Autopep8](https://pypi.org/project/autopep8/) - **Autopep8** used to format Python code to be PEP8 compliant.
+* [Favicon.io](https://favicon.io/) - **Favicon.io** was used to create the favicon for the website.
+* [Font Awesome](https://fontawesome.com/) - **Font Awesome** was used on all pages throughout the website to add icons for aesthetic and UX purposes.
+* [Google Fonts](https://fonts.google.com/) - **Google Fonts** were used to import the fonts into the application to style the fonts used on all pages of the project.
+* [Balsamiq](https://balsamiq.com/) - **Balsamiq** was used to create the wireframes during the design process.
+* [Web Formatter](https://webformatter.com/) - **Web Formatter** was used to beautify code.
+* [Am I Responsive](http://ami.responsivedesign.is/) - **Am I Responsive** was used to test page layouts during the build process.
+[GMail](https://gmail.com) - **Gmail** was used to provide the SMPT server, allowing the application to handle emails.
+* [PostgreSQL](https://www.postgresql.org/) - **PostgreSQL used for the relational database, hosted and deployed via Heroku.
