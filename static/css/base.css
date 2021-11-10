@@ -93,6 +93,10 @@ html {
     color: white;
 }
 
+.btn-sm:hover {
+    text-decoration: none;
+}
+
 /* --------------------- Category/subcategory buttons  */
 
 a.subcategory-badge > span.badge:hover {
@@ -113,7 +117,8 @@ a.update-link > span.badge:hover {
     cursor: pointer;
 }
 
-a.remove-item > span.badge:hover {
+a.remove-item > span.badge:hover,
+.delete-button:hover {
     background: #d9534f !important;
     border-color: #d9534f !important;
     color: #fff !important;
