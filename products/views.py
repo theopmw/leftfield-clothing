@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, SubCategory, Category
@@ -144,6 +145,7 @@ def product_detail(request, slug, product_id):
     return render(request, 'products/product_detail.html', context)
 
 
+@login_required
 def add_product(request):
     """ 
     View to add a product to the store.
@@ -158,7 +160,8 @@ def add_product(request):
             # Save it
             product = form.save()
             # Success message
-            messages.success(request, "Product ({product.name}) added successfully.")
+            messages.success(request, "Product ({product.name}) \
+                added successfully.")
             # Redirect back to add product view
             return redirect(reverse(
                 'product_detail', args=[product.slug, product.id]))
@@ -179,6 +182,7 @@ def add_product(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_product(request, product_id):
     """ 
     View to edit a product.
@@ -218,6 +222,7 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_product(request, product_id):
     """ Delete a product from the store """
     product = get_object_or_404(Product, pk=product_id)
