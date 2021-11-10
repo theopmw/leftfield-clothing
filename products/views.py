@@ -158,7 +158,7 @@ def add_product(request):
             # Save it
             form.save()
             # Success message
-            messages.success(request, "Product added successfully!")
+            messages.success(request, "Product added successfully.")
             # Redirect back to add product view
             return redirect(reverse('add_product'))
         # If errors on form
@@ -177,3 +177,41 @@ def add_product(request):
 
     return render(request, template, context)
 
+
+def edit_product(request, product_id):
+    """ 
+    View to edit a product.
+    """
+    # Pre-fill form
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        # Instantiate a form from request.post and include request .files
+        # and set instance to product obtained above
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        # Check if form is valid
+        if form.is_valid():
+            # Save it
+            form.save()
+            # Success message
+            messages.success(request, f'Product ({product.name}) \
+                 updated successfully')
+            # Redirect to the product detail page using product id
+            return redirect(reverse(
+                'product_detail', args=[product.slug, product.id]))
+        else:
+            # Error message
+            messages.error(request, 'Failed to update product, \
+            please check form.')
+    else:
+        # Instatiate product form using the product
+        form = ProductForm(instance=product)
+        # Message user
+        messages.info(request, f'You are editing {product.name}')
+
+    template = 'products/edit_product.html'
+    context = {
+        'form': form,
+        'product': product,
+    }
+
+    return render(request, template, context)
