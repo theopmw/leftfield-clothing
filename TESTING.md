@@ -1,4 +1,4 @@
-## Bugs
+##  Bugs
 
 - ### Django admin: populating select options depending on another select
 
@@ -14,7 +14,7 @@ All subcategories were shown regardless of the selection of category.
 ![Django admin select box bug](media/testing_screenshots/populate_select_options_depending_on_another_select_bug.png)
 
 Fix:  
-To fix this the views.py file had to be adapted. The initial source that assisted the development of this feature was modified from an article from [Better Programming](https://betterprogramming.pub/optimizing-django-admin-6a1187ddbb09). In order to achieve the desired result the get sub_category view had to be modified from the original source into the following:
+To fix this the [views.py](products/views.py) file had to be adapted. The initial source that assisted the development of this feature was modified from an article from [Better Programming](https://betterprogramming.pub/optimizing-django-admin-6a1187ddbb09). In order to achieve the desired result the get sub_category view had to be modified from the original source into the following:
 ```
 def get_subcategory(request):
     """
@@ -170,7 +170,75 @@ Code snippet with both loops:
 
 ```
 
-## Known bugs & issues
+- ### Slug field as url path causing add product URL error
+
+Expected:  
+When navigating to the add product URL, the add product page is displayed.
+
+Testing:  
+Navigate to the add product page.
+
+Result:  
+A page not found (404) error is displayed.
+
+![Slug fields causing add product page bug error](media/slug_field_bug_error.png)
+
+This was caused as the product detail URL is set to a slug and the when navigating to products/add URL, add was being interpreted as a slug(string). 
+
+Fix:  
+Since a slug is a string and therefore cannot be specified as an integer, the product_id had to be added to the URL so that Django would continue past the product detail URL to retrieve the add product URL. As they are both strings, Django was interpretting the /add as a product. The URL had to be set up to take a slug and an integer as parameters, but in the view use only the integer primary key to access the product. Then the object’s get_absolute_url object inserts both slug and primary key into the URL.
+
+Code snippet for fix:
+
+Set up url to take a slug and integer as parameters - [products/urls.py](products/urls.py):  
+```
+urlpatterns = [
+    path('', views.all_products, name='products'),
+    path('<slug:slug>/<int:product_id>/', views.product_detail, name='product_detail'),
+    path('add/', views.add_product, name='add_product'),
+    ]
+```
+
+In the views use the integer primary key to access the product - [products/views.py](products/views.py):  
+```
+def get_redirected(queryset_or_class, lookups, validators):
+    """
+    Calls get_object_or_404 and conditionally builds redirect URL.
+    """
+    obj = get_object_or_404(queryset_or_class, **lookups)
+    for key, value in validators.items():
+        if value != getattr(obj, key):
+            return obj, obj.get_absolute_url()
+    return obj, None
+
+
+def product_detail(request, slug, product_id):
+    """
+    View to show individual product details.
+    """
+    product, product_url = get_redirected(Product, {'pk': product_id}, {'slug': slug})
+    if product_url:
+        return redirect(product_url)
+
+    context = {
+        'product': product,
+    }
+
+    return render(request, 'products/product_detail.html', context)
+```
+
+Add get_absolute_url object to Product model - [products/models.py](products/models.py): 
+```
+class Product(models.Model):
+    """
+    Model for Product table
+    """
+    def get_absolute_url(self):
+        return reverse('product', kwargs={'slug': self.slug, 'id':self.id})
+    # Everything else in model
+``` 
+
+##  Known bugs & issues
 
 - ### Delivery cost remaining in admin if all line items are removed
 
@@ -180,7 +248,7 @@ If products are removed via the admin panel to set the order total at £0.00, th
 
 The code that causes this is from the update_total function in the checkout app [models.py](checkout/models.py) file.
 
-The following code snippet illustrates that the bug is caused by the STANDARD_DELIVERY_PRICE being applied to any order total that is below the FREE_DELIVERY_THRESHOLD, even if that total is £0.00.
+The following code snippet from [checkout/models.py](checkout/models.py) illustrates that the bug is caused by the STANDARD_DELIVERY_PRICE being applied to any order total that is below the FREE_DELIVERY_THRESHOLD, even if that total is £0.00.
 
 ```
 def update_total(self):
@@ -200,3 +268,5 @@ def update_total(self):
 ```
 
 Since the user is unable to create an order of £0.00 this should not cause eny errors or issues for the user when placing an order or allow any delivery charges to be made to the users account without making a purchase that is below the free delivery threshold (£50.00) but greater than £0.00.
+
+
