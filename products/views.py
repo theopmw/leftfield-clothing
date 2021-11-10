@@ -8,8 +8,6 @@ from django.http import HttpResponse
 
 import json
 
-from django.db.models import Lookup
-
 
 # Code for view modified from:
 # https://betterprogramming.pub/optimizing-django-admin-6a1187ddbb09 &
