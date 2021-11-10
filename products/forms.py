@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product, Category
+from .models import Product, SubCategory, Category
 
 
 class ProductForm(forms.ModelForm):
@@ -14,5 +14,12 @@ class ProductForm(forms.ModelForm):
         friendly_names = [(c.id, c.get_friendly_name()) for c in categories]
 
         self.fields['category'].choices = friendly_names
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'border-black rounded-0'
+
+        subcategories = SubCategory.objects.all()
+        friendly_names = [(c.id, c.get_friendly_name()) for c in subcategories]
+
+        self.fields['subcategory'].choices = friendly_names
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
