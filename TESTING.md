@@ -238,6 +238,17 @@ class Product(models.Model):
     # Everything else in model
 ``` 
 
+Update URL path in template to take product id - [products/templates/products/products.html](products/templates/products/products.html)  
+```
+<a href="{% url 'product_detail' product.slug product.id %}">
+    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+</a>
+{% else %}
+<a href="{% url 'product_detail' product.slug product.id%}">
+    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+</a>
+```
+
 ##  Known bugs & issues
 
 - ### Delivery cost remaining in admin if all line items are removed
