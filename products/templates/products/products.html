@@ -172,7 +172,7 @@
                                 {% if product.image %}
                                 <!-- Credit build links with slugs modifed from
                                 https://stackoverflow.com/questions/63481787/how-to-display-uniquely-generated-slugs-in-urls -->
-                                <a href="{% url 'product_detail' product.slug %}">
+                                <a href="{% url 'product_detail' product.slug product.id %}">
                                     <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                                 </a>
                                 {% else %}
