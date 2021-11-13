@@ -28,22 +28,22 @@
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container mb-5 mt-md-5">
-                    <p class="mb-0">{{ product.name }}</p>
-                    <p class="small mb-0 text-left text-muted">{{ product.brand }}</p>
+                    <p class="font-raleway mb-0">{{ product.name }}</p>
+                    <p class="small font-raleway mb-0 text-left text-muted">{{ product.brand }}</p>
                     <!-- {% if product.brand %}
                         <p class="small mt-1 mb-0">
                             <a class="text-muted" href="{% url 'products' %}?brand={{ product.brand }}">{{ product.brand }}</a>
                         </p>
                     {% endif %} -->
-                    <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                    <p class="lead font-roboto mb-0 text-left font-weight-bold">£{{ product.price }}</p>
                     {% if product.rating %}
-                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                        <small class="text-muted font-roboto"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                     {% else %}
-                        <small class="text-muted">No Rating</small>
+                        <small class="text-muted font-roboto">No Rating</small>
                     {% endif %}
                     {% if product.subcategory %}
                         <p class="small mt-1 mb-0">
-                            <a class="text-muted" href="{% url 'products' %}?subcategory={{ product.subcategory.name }}">
+                            <a class="text-muted font-roboto" href="{% url 'products' %}?subcategory={{ product.subcategory.name }}">
                                 <i class="fas fa-tags mr-1"></i>{{ product.subcategory.friendly_name }}
                             </a>
                         </p>
@@ -54,17 +54,17 @@
                             <a class="delete-button btn-sm btn-outline-black font-raleway text-uppercase rounded-0" href="{% url 'delete_product' product.id %}">Delete</a>
                         </div>
                     {% endif %}
-                    <p class="mt-3">{{ product.description }}</p>
+                    <p class="font-roboto mt-3">{{ product.description }}</p>
                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
-                        <div class="form-row">
+                        <div class="form-row font-raleway">
                             {% with product.has_sizes as s %}
                                 {% if s %}
                                     <!-- Jeans & trousers product sizes -->
                                     {% if product.subcategory.name == "jeans_trousers" %}
                                         <div class="col-12">
                                             <p><strong>Size:</strong></p>
-                                            <select id="id_product_size" class="form-control rounded-0 w-50" name="product_size">
+                                            <select id="id_product_size" class="form-control rounded-0 w-50 font-roboto" name="product_size">
                                                 <option value="30x30">30" x 30"</option>
                                                 <option value="30x32">30" x 32"</option>
                                                 <option value="30x34">30" x 34"</option>
@@ -83,7 +83,7 @@
                                     {% elif product.category.name == "footwear" %}
                                         <div class="col-12">
                                             <p><strong>Size:</strong></p>
-                                            <select id="id_product_size" class="form-control rounded-0 w-50" name="product_size">
+                                            <select id="id_product_size" class="form-control rounded-0 w-50 font-roboto" name="product_size">
                                                 <option value="6">6</option>
                                                 <option value="6.5">6.5</option>
                                                 <option value="7">7</option>
@@ -105,7 +105,7 @@
                                     {% else %}
                                         <div class="col-12">
                                             <p><strong>Size:</strong></p>
-                                            <select id="id_product_size" class="form-control rounded-0 w-50" name="product_size">
+                                            <select id="id_product_size" class="form-control rounded-0 w-50 font-roboto" name="product_size">
                                                 <option value="xs">XS</option>
                                                 <option value="s">S</option>
                                                 <option value="m" selected>M</option>
@@ -116,7 +116,7 @@
                                     {% endif %}
                                 {% endif %}
                                 <!-- Quantity selector -->
-                                <div class="col-12">
+                                <div class="col-12 font-roboto">
                                     <p class="mt-3"><strong>Quantity:</strong></p>
                                     <div class="form-group w-50">
                                         <div class="input-group">
