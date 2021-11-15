@@ -96,7 +96,7 @@ Code snippet with both loops:
         <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=shoes">
             <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Shoes</span>
         </a>
-    {% elif current_categories is accessories %}
+    {% elif category.name == "accessories" %}
         <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=accessories">
             <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">All Accessories</span>
         </a>
@@ -148,7 +148,7 @@ Code snippet with both loops:
         <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=shoes">
             <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Shoes</span>
         </a>
-        {% elif current_categories is accessories %}
+        {% elif subcategory.category.name == "accessories" %}
         <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=accessories">
             <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">All Accessories</span>
         </a>
