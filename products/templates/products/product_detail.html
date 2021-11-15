@@ -101,6 +101,15 @@
                                                 <option value="13">13</option>
                                             </select>
                                         </div>
+                                    {% elif  product.subcategory.name == "socks" %}
+                                        <div class="col-12">
+                                            <p><strong>Size:</strong></p>
+                                            <select id="id_product_size" class="form-control rounded-0 w-50 font-roboto" name="product_size">
+                                                <option value="s">S</option>
+                                                <option value="m" selected>M</option>
+                                                <option value="l">L</option>
+                                            </select>
+                                        </div>
                                     <!-- Clothing product sizes  -->
                                     {% else %}
                                         <div class="col-12">
