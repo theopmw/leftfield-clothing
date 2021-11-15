@@ -169,6 +169,7 @@ a.remove-item > span.badge:hover,
     position: fixed;
     bottom: 25px;
     right: 10px;
+    z-index: 9999999;
 }
 
 .btt-link {
