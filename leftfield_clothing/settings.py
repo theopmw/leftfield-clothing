@@ -27,8 +27,7 @@ SECRET_KEY = 'django-insecure-ex7y=^9q368+s0#u72s&&vzsif@cz*sz#l)red^#frt)f1kd8*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['leftfield-clothing-theopmw', 'localhost']
-
+ALLOWED_HOSTS = ['leftfield-clothing-theopmw', 'leftfield-clothing-theopmw.herokuapp.com', 'localhost']
 
 # Application definition
 
