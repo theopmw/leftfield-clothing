@@ -7,11 +7,43 @@
     margin-top: 0;
 }
 
-
 /* Allows h-100 classes and vertical centering to work */
 html {
     height: 100%;
 }
+
+.home-hero {
+    /* background: url('/media/home_hero.png'); */
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    /* height: 900px; */
+    /* display: flex; */
+    /* max-width: 100%; */
+    /* height: 400px; */
+    /* width: auto\9; ie8 */
+
+    background-image: url('/media/home_hero_sm.png');
+    height: 400px;
+    /* height: calc(vh - 168px); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    /* top: 25%; */
+    /* right: 25%;
+    transform: translate(-25%, -25%); */
+
+}
+
+.home-hero-text {
+    margin: 10px 0 0 20px;
+}
+/* body {
+    background: url('/media/home_hero.png') no-repeat center center fixed;
+    height: calc(100vh - 168px);
+    height: 100%;
+    background-size: cover;
+} */
 
 .overlay {
 	height: 100%;
@@ -48,14 +80,18 @@ html {
 /* --------------------- Fonts */
 
 .font-raleway {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.font-roboto {
+    font-family: 'Roboto', sans-serif !important;
 }
 
 /* -------------------------------- General spacing */
 
-.header-container {
+/* .header-container {
     padding-top: 11.5rem;
-}
+} */
 
 /* -------------------------------- Buttons */
 
@@ -386,17 +422,17 @@ input[name='q']::placeholder {
     #delivery-banner > div > h4 {
         font-size: 24px;
     }
+
+    .home-hero {
+        /* top: 168px; */
+        height: 480px;
+    }
+
+    .home-hero-text {
+        margin: 20px 0 0 20px;
+    }
 }
 
-
-@media (min-width: 1200px) {
-    /* Slightly larger container on xl screens */
-    .container {
-      max-width: 80%;
-    }
-  }
-
-  
 @media (min-width: 992px) {
     /* fixed top navbar only on medium and up */
     /* .fixed-top-desktop-only {
@@ -407,6 +443,21 @@ input[name='q']::placeholder {
         z-index: 1030;
     } */
 
+    .home-hero {
+        background-image: url('/media/home_hero.png');
+        height: 400px;
+    }
+
+    .home-hero-text {
+            position: absolute;
+            top: 50%; 
+            left: 75%;
+            transform: translate(-50%,-50%);
+            /* width: 200px;
+            height: 200px; */
+    }
+
+
     .main-logo-link-clothing {
         margin: -5px 0 0 2px !important;
         /* letter-spacing: 13.8px !important; */
@@ -414,15 +465,36 @@ input[name='q']::placeholder {
         /* font-weight: 200; */
     }
 
-    .header-container {
+    /* .header-container {
         padding-top: 10.5rem;
-    }
+    } */
 
     .btt-button {
         bottom: 204px
     }
 
 }
+
+
+@media (min-width: 1200px) {
+    /* Slightly larger container on xl screens */
+    .container {
+      max-width: 80%;
+    }
+
+    .home-hero {
+        height: 550px;
+    }
+
+    .home-hero-text {
+        left: 80%;
+        /* width: 200px;
+        height: 200px; */
+}
+  }
+
+  
+
 
 /* .active {
     background: #212529 !important;
