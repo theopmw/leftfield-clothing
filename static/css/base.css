@@ -245,7 +245,7 @@ input[name='q']::placeholder {
 }
 
 #delivery-banner > div > h4 {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 /* -------------------------------- Footer */
@@ -421,7 +421,7 @@ input[name='q']::placeholder {
 
 @media (min-width: 768px) {
     #delivery-banner > div > h4 {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .home-hero {
