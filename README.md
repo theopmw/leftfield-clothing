@@ -12,57 +12,101 @@ This project is part of my [Code Institute](https://codeinstitute.net/) Full Sta
 
 - [x] View a list of available products
 
+![All Products](media/readme_screenshots/all_products.png)
+
 - [x] View a specific category of products
 
+![Product category](media/readme_screenshots/product_category.png)
+
+- [x] View a specific subcategory of products
+
+![Product subcategory](media/readme_screenshots/product_subcategory.png)
+
 - [x] View details of an individual product, including name, price, description, rating, image and sizes if applicable
+
+![Product detail](media/readme_screenshots/product_detail.png)
 
 - [x] Identify sale items and special offers
 
 - [x] Easily review the total of my purchases
 
+![Shopping bag](media/readme_screenshots/shopping_bag.png)
+
 **Registration and User Accounts**
 
 - [x] Easily register an account
 
+![Register account](media/readme_screenshots/register_account.png)
+
 - [x] Easily login/logout
 
+![Log in](media/readme_screenshots/log_in.png)
+
+![Log out](media/readme_screenshots/log_out.png)
+
 - [x] Easily recover my password if I lose access to my account
+
+![Forgot Password](media/readme_screenshots/forgot_password.png)
 
 - [x] Receive an email confirmation on successful registration of an account
 
 - [x] Have a personal user profile to view my order history and save my personal information
 
+![Profile page](media/readme_screenshots/profile.png)
+
 **Sorting and Searching**
 
-- [x] Sort the list of available products by best rated, best priced, or by category
+- [x] Sort the list of available products by name, price, brand or rating
 
-- [x] Sort products within a specific category by name, price or rating
+![All product sorting](media/readme_screenshots/all_product_sorting.png)
 
-- [x] Sort multiple categories of products simultaneously across broad categories such as clothing or footwear or hats
+- [x] Sort multiple categories of products simultaneously across broad categories such as clothing or footwear
+
+![Category sorting](media/readme_screenshots/category_product_sorting.png)
+
+- [x] Sort products within a specific subcategory by name, price, brand or rating
+
+![Subcategory product sorting](media/readme_screenshots/subcategory_product_sorting.png)
 
 - [x] Search for a product by name, description or brand
 
 - [x] Easily see what I have searched for and the number of results
 
+![Search](media/readme_screenshots/search.png)
+
 **Purchasing and Checkout**
 
 - [x] Easily select the size and quantity of a product when purchasing
 
+![Item size and quantity](media/readme_screenshots/size_and_quantity.png)
+
 - [x] View the items in my bag
+
+![Bag items](media/readme_screenshots/bag_items.png)
 
 - [x] View the total cost of items in my bag
 
 - [x] View the total shipping cost of my order
 
+![Total cost and shipping cost](media/readme_screenshots/cost_and_shipping.png)
+
 - [x] Adjust the quantity of individual items in my bag
 
+![Update quantity](media/readme_screenshots/update_quantity.png)
+
 - [x] Easily enter my payment information
+
+![Payment information](media/readme_screenshots/payment_info.png)
 
 - [x] Know that my personal information and payment details are secure
 
 - [x] View an order confirmation after checkout
 
+![Order confirmation](media/readme_screenshots/order_confirmation.png)
+
 - [x] Receive a confirmation email after checkout
+
+![Email confirmation](media/readme_screenshots/email_confirmation.png)
 
 #### As an admin, I would like to:
 
@@ -70,9 +114,17 @@ This project is part of my [Code Institute](https://codeinstitute.net/) Full Sta
 
 - [x] Add a product
 
+![Add product](media/readme_screenshots/add_product.png)
+
 - [x] Edit/update a product
 
+![Edit product](media/readme_screenshots/edit_product.png)
+
 - [x] Delete a product
+
+![All products edit/delete buttons](media/readme_screenshots/all_products_edit_delete_buttons.png)
+
+![Product detail edit/delete buttons](media/readme_screenshots/product_detail_edit_delete_buttons.png)
 
 Possible additions:
 
