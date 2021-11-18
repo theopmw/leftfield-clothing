@@ -42,24 +42,21 @@ def add_to_bag(request, item_id):
                 # Message to let users know quantity of
                 # product with sizes updated
                 messages.success(
-                    request, f'Updated size {size.upper()}' 
-                    f' {product.name} quantity to'
+                    request, f'Updated {product.name} (Size: {size.upper()}) quantity to'
                     f' {bag[item_id]["items_by_size"][size]}')
             else:
                 # If it doesn't, set it equal to the quantity
                 bag[item_id]['items_by_size'][size] = quantity
                 # Message to let users know product with size added to bag
                 messages.success(
-                    request, f'Added size {size.upper()}'
-                    f' {product.name} to your bag')
+                    request, f'Added {product.name} (Size: {size.upper()}) to your bag')
         # If item not in bag:
         else:
             # Add as dictionary
             bag[item_id] = {'items_by_size': {size: quantity}}
             # Message to let users know product with size added to bag
             messages.success(
-                request, f'Added size {size.upper()}'
-                f' {product.name} to your bag')
+                request, f'Added {product.name} (Size: {size.upper()}) to your bag')
     # If product has no sizes
     else:
         # Update quantity of item in bag if specific item already in bag
@@ -107,7 +104,7 @@ def adjust_bag(request, item_id):
             # Message to let users know quantity of
             # product with sizes updated
             messages.success(
-                request, f'Updated size {size.upper()} {product.name}'
+                request, f'Updated{product.name} (Size: {size.upper()})'
                 f' quantity to {bag[item_id]["items_by_size"][size]}')
         else:
             # If quantity is 0, remove item with size
@@ -116,8 +113,7 @@ def adjust_bag(request, item_id):
                 bag.pop(item_id)
             # Message to let users know product with sizes removed from bag
             messages.success(
-                request, f'Removed size {size.upper()}'
-                f' {product.name} from your bag')
+                request, f'Removed {product.name} (Size: {size.upper()}) from your bag')
     # Adjust products without sizes
     else:
         # If quantity greater than 0, set the items quantity accordingly
@@ -154,8 +150,8 @@ def remove_from_bag(request, item_id):
                 bag.pop(item_id)
             # Message to let users know product with sizes removed from bag
             messages.success(
-                request, f'Removed size {size.upper()}'
-                f' {product.name} from your bag')
+                request, f'Removed {product.name}'
+                f' (Size: {size.upper()}) from your bag')
         # Delete items without sizes from bag
         else:
             bag.pop(item_id)
