@@ -220,14 +220,14 @@ Possible additions:
 ### Profile Page
 (only available to logged in users)
 
-- The profile page features a '```<User>```'s Profile' heading, the users default delivey information and order history.
+- The **Profile Page** features a '```<User>```'s Profile' heading, the users default delivey information and order history.
 - The users default delivery information consists of a form which allows users to update and save thier delivery information. If the user opted to save their delivery information at checkout, this form will be prefilled withh the information provided at checkout.
 - The order history provides a biref look at the users past orders in chronological order. If the user clicks the order number they are redirected to a complete summary of that order.
 
 ### Product Management Page
 (only available to site admin/superusers)
 
-- The product management page features a 'Product Management' heading and allows the site owner to add products to, or edit existing products in the DB.
+- The **Product Management** page features a 'Product Management' heading and allows the site owner to add products to, or edit existing products in the DB.
 - The page features an add product form containing all relevant fields to add a product to the DB and buttons to either cancel or add the product to the DB at the bottom of the page.
 - If the user is editing a product, the form will be pre-filled with the product information and the button at the bottom of the page will read "Update Product'.
 
@@ -299,3 +299,403 @@ Git branching was also utilised to isolate the production of new features and me
     * When the branch had been merged with the master and was no longer needed, ```git branch -d new-branch``` was used to delete the branch.
 
 Parts of this section used the following article for reference: [How To Use Git: A Reference Guide](https://dev.to/digitalocean/how-to-use-git-a-reference-guide-6b6).
+
+## Deployment
+
+For the deployment process below, accounts for the following services must be set up:
+
+- [GitHub](https://github.com/)
+- [Heroku](https://www.heroku.com/home)
+- [Stripe](https://stripe.com/en-gb)
+- [Amazon Web Services (AWS)](https://aws.amazon.com/?nc2=h_lg)
+
+### Heroku
+
+Heroku was used as the deployment platform for this site using the following steps:
+
+#### Create the App:
+
+1. From the dashboard, select 'Create New App'. Give the app a name and select the region closest to you.
+
+2. Provision a new Postgres database for the app by searching "Heroku Postgres" in the 'Resources' tab and adding it to the app.
+
+
+
+3. In the IDE install the following dependencies in the CLI/terminal to allow the use of Postgres:
+```
+pip3 install dj_database_url
+pip3 install psycopg2-binary
+```
+
+4. Freeze these requirements using the following command in the CLI/terminal:
+```
+pip3 freeze > requirements.txt
+```
+
+5. Create a superuser from the CLI/terminal to allow access to the Django admin panel, using the following command:
+```
+python3 manage.py createsuperuser
+```
+6. Follow the steps in the CLI/terminal to create a superuser for the app.
+
+#### Enable the Postgres Database:
+
+1. To set up the new database, in the project level settings.py file, import dj_database_url.
+
+2. In the 'Settings' tab of the Heroku app, click “Reveal Config Vars” and copy the DATABASE_URL value.
+
+3. In the DATABASES setting of the project level settings.py file, comment out the default configuration and replace the default database with a call to ```dj_database_url.parse()```:
+```
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+# }
+
+DATABASES = {
+	'default': dj_database_url.parse('postgres://...')
+}
+```
+
+#### Migrating data
+
+1. Migrate data to Postgres using the following commands in the CLI/terminal:
+```
+python3 manage.py showmigrations
+python3 manage.py migrate
+```
+2. If fixtures were used, this data can be imported using the ```python3 manage.py loaddata <fixture-name>``` command in the CLI/terminal.
+
+#### SQLite/Postgres Database Configuration
+
+1. In settings.py create an if statement to set Postges as the database when the app is running on Heroku:
+```
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+```
+2. Install gunicorn via the CLI/terminal to act as the webserver:
+```
+pip3 install gunicorn
+```
+3. Freeze it to the requirements file:
+```
+pip3 freeze > requirements.txt
+```
+#### Create web dyno to run gunicorn and serve the app
+
+1. Create a Procfile at system level and add the following code snippet to create the web dyno to run unicorn and serve our django app:
+```
+web: gunicorn <app_name>.wsgi:application
+```
+#### Log in to Heroku Via the CLI/terminal and Disable Static File Colloection
+
+1. Via the CLI/terminal, log into Heroku using the following command:
+
+```
+heroku login -i
+```
+2. Disable stsic file collection via the CLI/terminal using the following command:
+
+```
+heroku config:set DISABLE_COLLECTSTATIC=1 --app <app_name>
+```
+#### Configure Heroku to Host the Live Site
+
+1. Add the host name of the Heroku app To ALLOWED_HOSTS in the project level settings.py file (note: keep localhost there to allow the development enviroment):
+```
+ALLOWED_HOSTS = ['<app_name>.herokuapp.com', 'localhost']
+```
+2. Add, commit and push to GitHub (note: app will be deployed without static files, these will be added in a later step).
+
+#### Enable Automatic Deployment to Heroku
+
+1. Open the 'Deploy' tab in the Heroku dashboard and select GitHub from the 'Deployment Method' section.
+
+2. Search for the repository and select it.
+
+3. Click 'Connect'.
+
+3. Click 'Enable Automatic Deploys'.
+
+#### Set Secret Key Variables
+
+1. Generate a secret key.
+
+2. Navigate to the 'Settings' tab from the Heroku dashboard, click 'Reveal Config Vars' and add a new variable SECRET_KEY with the value set as the secret key generated in the previous step.
+
+3. In the GitPod settings menu, select the 'Variables' tab and repeat the above steps but generate a new secret key value.
+
+4. In the project level settings.py file, replace the SECRET_KEY value with a call to get the key form the environment, using an empty string as the default:
+```
+SECRET_KEY = os.environ.get('SECRET_KEY', '')
+```
+#### Set Debug
+
+1. In the project level sattings.py file, set debug to True only if there's a DEVELOPMENT variable in the environment:
+```
+DEBUG = 'DEVELOPMENT' in os.environ
+```
+#### Commit
+
+1. Add, commit and push files.
+
+### Static and Media File Storage with AWS S3
+
+#### Create a Bucket for the app in AWS S3
+
+1. Sign into your AWS account as a root user.
+
+2. Navigate to S3 and click 'Create Bucket' - this will be used to store all static and media files.
+
+3. Name the bucket (note: best practice is to do this to match the name of the Heroku app).
+
+4. Select the region closest to you from the dropdown menu.
+
+5. Uncheck 'Block All Public Access' and confirm you acknowlege the bucket will be public by checking the checkbox below (note: this is nbeeded to allow users access to our static and media files).
+
+6. Click 'Create Bucket'.
+
+7. Click the new bucket to open it.
+
+#### Setting Bucket Properties
+
+1. Select the ''Properties' tab and enable static web hosting.
+
+2. Input the default values (shown in the text input) for "Index document" and "Error document".
+
+3. Click 'Save'.
+
+#### Setting Bucket Permissions
+
+1. Add a Cross-origin resource sharing (CORS) configuration by navigating to that section of the Permissions page to set up the required access between the Heroku app and the S3 Bucket:
+```
+[
+  {
+      "AllowedHeaders": [
+          "Authorization"
+      ],
+      "AllowedMethods": [
+          "GET"
+      ],
+      "AllowedOrigins": [
+          "*"
+      ],
+      "ExposeHeaders": []
+  }
+]
+```
+2. Click 'Save'.
+
+3. Navigate to the 'Bucket Policy' section and select 'Generate Policy' to set up a security policy for the S3 Bucket.
+
+3. For Step 1: Select Bucket Policy, select 'S3 Bucket Policy'.
+
+4. For Step 2: Add Statements, allow all Principals by adding an asterisk (*) to the Principal text input box, select GetObject from the Actions dropdown and copy the Amazon Resource Name (ARN) from the 'Properties' tab into the ARN text input box.
+
+5. Click 'Add Statement'.
+
+6. Click 'Generate Policy'.
+
+7. Copy the policy and paste it into the Bucket Policy Editor.
+
+8. To allow access to all resources in the bucket, add a slash and asterisk (/*) to the end of the Resource key.
+```
+"Resource": "arn:aws:s3:::.../*",
+```
+9. Click 'Save'.
+
+10. Navigate to the Access control list (ACL) section and check the Everyone (public access) Grantee objects list checkbox.
+
+11. Accept that you acknowledge the S3 Bucket will have public access.
+
+12. Click 'Save Changes'
+
+### AWS Identity and Access Management with AWS IAM
+
+- Create AWS Groups, Policies and Users to access static and media files
+
+#### Creating a Group
+
+1. Open IAM from the AWS 'Services' menu.
+
+2. Click 'Groups from the IAM Dashboad and click 'Create New Group'.
+
+3. Give the group a name, for example ```manage-<app-name>``` (note: user groups manage permissions, so name it accordingly).
+
+4. Click 'Create Group'.
+
+#### Create the Policy
+
+1. Select 'Policies' from the IAM dashboard and click 'Create Policy'.
+
+2. Click the 'JSON' tab and click 'Import managed policy' at the top right of the editor.
+
+3. Select the 'AmazonS3FullAccess' policy and click 'Import'.
+
+4.For the purpose of this project, access is only required from this bucket, so change the '```Resource:```' key in the JSON file to the following using the bucket ARN:
+```
+"Resource": [
+            "arn:aws:s3:::...",
+            "arn:aws:s3:::.../*"
+            ]
+```
+
+5. Click through and give the policy a name, for example '```<app-name>-policy```' and a description.
+
+6. Click 'Create Policy'.
+
+#### Attach Policy to the Group
+
+1. Navigate to the 'Groups' tab in the IAM dashboard.
+
+2. Select the relevant group.
+
+3. Click 'Attach Policy'.
+
+4. Select the required policy and click 'Add Policy'
+
+#### Create User for the Group
+
+1. Navigate to the 'Users' tab in the IAM dashboard.
+
+2. Click 'Add User'.
+
+3. Give the user a name, for example '```<app-name>-staticfiles-user```'.
+
+4. Select the 'Programatic Access' checkbox.
+
+5. Click 'Next: Permissions'.
+
+6. Select the group to add the user to and click through to the end and click 'Create User'.
+
+7. Click 'Download .csv' to download the attached csv file **(note: very important to download and save this as because once this process is complete it cannot be downloaded again).**
+
+### Connect Django to S3
+
+#### Install Packages
+
+1. In the IDE, install boto-3 and django-storages in the CLI/terminal using the following commands:
+```
+pip3 install boto3
+pip3 install django-storages
+```
+
+2. Freeze the requirements using command:
+```
+pip3 freeze > requirements.txt
+```
+
+3. In the project level settings.py file, add ```storages``` to the list of ```INSTALLED_APPS```.
+
+#### Add Settings in settings.py to Connect the Heroku App to S3
+
+1. Add if statement to connect to S3 if ```USE_AWS``` variable is in the environment:
+```
+if 'USE_AWS' in os.environ:
+    # Bucket Config
+    AWS_STORAGE_BUCKET_NAME = '<bucket-name>'
+    AWS_S3_REGION_NAME = '<bucket-region>'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+```
+
+### Add AWS Keys to Heroku Config Variables
+
+1. Navigate to the 'Settings tab in the Heroku dashboard and click 'Reveal Config Vars'.
+
+2. Create two new Config Variables ```AWS_ACCESS_KEY_ID``` and ```AWS_SECRET_ACCESS_KEY``` and set them to the values found in the relevant fields from the AWS 'new_user_credentials.csv' file downloaded previously.
+
+3. Add ```USE_AWS``` to the Heroku Config Vars and set its value to True.
+
+4. Remove the DISABLE_COLLECTSTATIC variable so that when deploying to Heroku, Django will collect static and media files automatically and upload them to S3.
+
+### Tell Django Where Static Files Will Come From in Production 
+
+1. In the project level settings.py file, add a further variable, ```AWS_S3_CUSTOM_DOMAIN```, to the ```if 'USE_AWS' in os.environ:``` statement:
+```
+if 'USE_AWS' in os.environ:
+    # Bucket Config
+    AWS_STORAGE_BUCKET_NAME = '<bucket-name>'
+    AWS_S3_REGION_NAME = '<bucket-region>'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+```
+
+2. At the system level, create a new file called custom_storages.py and import the following into the new file:
+```
+from django.conf import settings
+from storages.backends.s3boto3 import S3Boto3Storage
+```
+
+3. Within the custom_storages.py file, create the following classes to set the location for static and media files:
+
+```
+class StaticStorage(S3Boto3Storage):
+    location = settings.STATICFILES_LOCATION
+
+
+class MediaStorage(S3Boto3Storage):
+    location = settings.MEDIAFILES_LOCATION
+```
+
+4. In the project level settings.py file, add the following to the ```if 'USE_AWS' in os.environ:``` statement to tell Django to use the storage classes created above for file storage and the location to save the static and media files to:
+```
+    # Static and media files
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+```
+
+5. Override and explicitly set the URLs for static and media files using the custom domain and the new locations in the same ```if 'USE_AWS' in os.environ:``` statement:
+```
+    # Override static and media URLs in production
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+```
+
+### Caching, Media Files & Admin
+
+#### Caching
+
+1. As static files are unlikely to change often due to the scope of this project, they can be cached for a long time. To do this, an ```AWS_S3_OBJECT_PARAMETERS``` dictionary can be added to the same ```if 'USE_AWS' in os.environ:``` statement as above:
+```
+    # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+```
+
+#### Add Media Files to S3
+
+1. Navigate to the app S3 Bucket on the S3 website.
+
+2. In the objects tab, create a new folder called 'media' and click 'Save'.
+
+3. Open the folder and click 'Upload' then click 'Add Files'.
+
+4. Select the files to upload and click 'Next'.
+
+5. Under 'Permissions' and 'Predefined ACLs', select 'Grant public-read access'
+and click 'Upload'.
+
+#### Confirm email for superuser on Postgres database
+
+1. Navigate to the live Heroku app and access the admin panel via '```<app-name>.herokuapp.com/admin```'.
+
+2. In the Emails tab, click the user email and select both 'Verified' and 'Primary' from the options.
+
+3. Click 'Save'.
+
