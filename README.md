@@ -132,6 +132,105 @@ Possible additions:
 
 - [x] See product sales volumes to see which products are selling best
 
+## Features
+
+### Consistent Site Features and Components
+
+- All pages of the site contain the same **Header** and **Footer** components.
+
+- **Header** 
+    - The site header consists of two rows:
+        - The top row contains the site logo/home link, search bar and links to the account menu and shopping bag.
+        - The bottom row contains links to allow the user to navigate between the different pages of the site, depending on the type of product they are looking for.
+    - If no user logged in, the Account menu will display 'Register' and 'Login' as options. 
+    - If user logged in, the Account menu will display 'Profile' and 'Logout' as options.
+        - Note if user is Admin/Superuser, 'Product Management' will also be featured on this menu.
+    - On mobile and tablet screensizes, the nav links in the bottom row collapse into a navbar toggler/burger icon to keep the UI clean and un-cluttered and provide a positive UX.
+
+- **Footer**
+    - The footer consists of the site logo on its own row. 
+    - Beneath this is a row containing:
+        - A 'Contact Us' section with the company telephone number and email address (clicking the email address opens a link to write to the company in the users chosen mail app).
+        - A 'Links' section, with some quick links to other areas of the site. The idea behind this was that should the scale of the site increase, it would allow the easy addition of links to terms & conditions, delivery & returns, shipping information, gift cards etc. to the footer to provide a positive UX.
+        - Social Links to Leftfield Clothing social media (note that as Leftfield Clothing is for educational purposes only and therefore does not have social media, the links redirect to the specific platform home page).
+    - Finally, to the bottom of the page is the site copyright information.
+
+### All Products Page
+- The **All Products Page** features an "All Products" heading and displays all the products available on the site.
+- Beneath the heading is a row featuring the number of products to the left and a sort selector box to the right, allowing the user to select the parameters and direction they would like to sort products by.
+- The products are displayed using Bootstrap cards and each card features:
+    - An image of the product (which acts as a link to the full product description page if clicked)
+    - The name of the product
+    - The product brand
+    - The product price
+    - The product rating
+    - The product subcategory (If clicked this will redirect the user to the subcategory page for that category of products)
+    - If user has administator privileges, edit and delete buttons will be displayed
+
+### Products Category Page
+- The **Product Category Page** acts in a similar way to the All Products Page but features only products that belong to a specific category (eg 'All Clothing', 'All Footwear'). In addition to the sort feature, this page features a set of buttons to allow the user to easily switch between subcategories of the parent category. Clear visual cues are displayed to the user as to which subcategory they are looking at by way of a dynamic heading, displaying the current subcategory and an active page feature, inverting the colours of the current active subcategoty button.
+
+### Product Detail Page
+- The **Product Detail Page** displays all data associated with a product to the user.
+- The following information is displayed for each product:
+    - An image of the product (which acts as a link to open the image in a new tab)
+    - The name of the product
+    - The product brand
+    - The product price
+    - The product rating
+    - The product subcategory (If clicked this will redirect the user to the subcategory page for that category of products)
+    - The product description
+    - A size selector for the product relevant to product category/subcategory (if applicable).
+    - A quantity selector
+    - If user has administator privileges, edit and delete buttons will be displayed
+    - A 'Keep Shopping' button that redirects the user back to the all products page
+    - An 'Add to Bag' button that will add the item to the session users bag and launch a Bootstrap Toast to notify the user that the item has successfully been added to their bag
+        - The success toast features The dethails of the product added to bag, the number of items in the bag, the product image, name, size and quantity, the total cost of the bag and the amount needed to qualify for free shipping and a button to take the user to the checkout
+
+### Shopping Bag Page
+
+- The **Shopping Bag Page** features a 'Shopping Bag' heading and all details of items currrently in the shopping bag:
+    - The product image
+    - The product name, size and sku
+    - The product price
+    - A quantity selector
+    - Update button to updaqte the quantity
+    - Remove button to remove the product from the bag
+    - The bag total
+    - The delivery cost if applicable
+    - The grand total
+    - The amount needed to qualify for free shipping if total is less than the free delivery threshold
+    - A 'Keep Shopping' button that redirects the user back to the all products page
+    - A 'Secure Checkout' button to take the user to the checkout page
+    - To maintain a positive UX, these items are stacked on mobile and tablet and displyed in columns on a desktop and stacked on mobile and tablet
+
+
+### Checkout Page
+
+- The **Checkout Page** features a 'Checkout' heading with and order summary section and a checkout form.
+- On mobile and tablet, the order summary section and a checkout form are stacked, on desktops they are displayed in 2 columns, side by side.
+- The order summary provides a brief summary of the items in the order and the total cost of the order.
+- The checkout form has three sections:
+    - Details, for the users name and emiail
+    - Delivery, for the users delivery details
+    - Payment, for the users paymernt details (handled by Stripe)
+- The form is validated on submission and any errors are reported back to the user
+-Buttons at the bottom of the page allow users to complete their order or return to thier bag.
+
+### Profile Page
+(only available to logged in users)
+
+- The profile page features a '```<User>```'s Profile' heading, the users default delivey information and order history.
+- The users default delivery information consists of a form which allows users to update and save thier delivery information. If the user opted to save their delivery information at checkout, this form will be prefilled withh the information provided at checkout.
+- The order history provides a biref look at the users past orders in chronological order. If the user clicks the order number they are redirected to a complete summary of that order.
+
+### Product Management Page
+(only available to site admin/superusers)
+
+- The product management page features a 'Product Management' heading and allows the site owner to add products to, or edit existing products in the DB.
+- The page features an add product form containing all relevant fields to add a product to the DB and buttons to either cancel or add the product to the DB at the bottom of the page.
+- If the user is editing a product, the form will be pre-filled with the product information and the button at the bottom of the page will read "Update Product'.
+
 ## Technologies Used
 
 ### Languages Used
