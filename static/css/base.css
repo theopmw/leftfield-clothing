@@ -168,6 +168,7 @@ a.remove-item > span.badge:hover,
     width: 40px;
     position: fixed;
     bottom: 25px;
+    background-color: #fff;
     right: 10px;
     z-index: 9999999;
 }
