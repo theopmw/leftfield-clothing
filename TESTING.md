@@ -136,7 +136,7 @@ The user stories are annotated below to describe functionality and highlight the
 
 - **Know that my personal information and payment details are secure**
 
-    - [x] As Stripe is used to handle all payments, their in-built security is applied to all payments mode through the site.
+    - [x] As Stripe is used to handle all payments, their in-built security is applied to all payments made through the site.
 
 - **View an order confirmation after checkout**
 
@@ -147,10 +147,33 @@ The user stories are annotated below to describe functionality and highlight the
     - [x] Upon successful checkout, the user will be sent a confirmation email containing the details of the order.
 
 
+### As an Admin I Would like to:
 
+#### Admin and Store Management
 
+Admin users have full access to **CRUD** operations - **C**reate, **R**ead, **U**pdate and **D**elete.
 
+- **Add a product**
 
+    - [x] When logged in as an admin/superuser, the Product Management page is available from the Account menu.
+
+    - [x] From the Product Management page the admin can add a product to the DB by filling out the Add Product form.
+
+    - [x] If there are any validation errors whilst filling out the form, the admin will be notified.
+
+    - [x] On successful form submission, the admin will be redirected to the new products product page.
+
+- **Edit/update a product**
+
+    - [x] From the Products page or an individual Product Detail page, admin users have access to the edit product button.
+
+    - [x] This opens up the Edit Product form. This form is pre-filled with the product details and can be edited/updated by the admin and saved to the DB.
+
+- **Delete a product**
+
+    - [x] From the Products page or an individual Product Detail page, admin users have access to the delete product button.
+
+    - [x] This button will permanently delete a product from the DB.
 
 ##  Bugs
 
