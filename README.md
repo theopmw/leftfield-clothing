@@ -308,6 +308,7 @@ For the deployment process below, accounts for the following services must be se
 - [Heroku](https://www.heroku.com/home)
 - [Stripe](https://stripe.com/en-gb)
 - [Amazon Web Services (AWS)](https://aws.amazon.com/?nc2=h_lg)
+- [Gmail](https://mail.google.com/)
 
 ### Heroku
 
@@ -542,7 +543,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 3. Select the 'AmazonS3FullAccess' policy and click 'Import'.
 
-4.For the purpose of this project, access is only required from this bucket, so change the '```Resource:```' key in the JSON file to the following using the bucket ARN:
+4.For the purpose of this project, access is only required from this bucket, so change the '```Resource:```' key in the JSON file to the following using the bucket ARN (note: ARN found on the 'Permissions' tab of the S3 Bucket):
 ```
 "Resource": [
             "arn:aws:s3:::...",
@@ -595,7 +596,7 @@ pip3 install django-storages
 pip3 freeze > requirements.txt
 ```
 
-3. In the project level settings.py file, add ```storages``` to the list of ```INSTALLED_APPS```.
+3. In the project level settings.py file, add ```'storages'``` to the list of ```INSTALLED_APPS```.
 
 #### Add Settings in settings.py to Connect the Heroku App to S3
 
@@ -691,7 +692,7 @@ class MediaStorage(S3Boto3Storage):
 5. Under 'Permissions' and 'Predefined ACLs', select 'Grant public-read access'
 and click 'Upload'.
 
-#### Confirm email for superuser on Postgres database
+#### Confirm Email for Superuser on Postgres Database
 
 1. Navigate to the live Heroku app and access the admin panel via '```<app-name>.herokuapp.com/admin```'.
 
@@ -699,3 +700,103 @@ and click 'Upload'.
 
 3. Click 'Save'.
 
+### Stripe 
+
+#### Stripe Public and Secret Keys
+
+1. Log in to Stripe.
+
+2. Navigate to the 'API keys' tab within the 'Developers' dashboard.
+
+3. Copy the Publishable Key and Secret Key, 
+
+4. Navigate to the 'Config Vars' section within the Heroku app 'Settings' tab and add them as variables (```STRIPE_PUBLIC_KEY``` & ```STRIPE_SECRET_KEY```).
+
+NOTE - These varabales must match the varibales in the project level settings.py file.
+
+#### Stripe Webhooks
+
+1. Navigate to the Stripe 'Developers' dashboard and select 'Webhooks' from the menu.
+
+2. Click the '+ Add Endpoint' button in the top right.
+
+3. Add the URL for the Heroku app to the 'Endpoint URL' textbox, adding ```checkout/wh/``` to the end of the URL. For example:
+```https://app-name.herokuapp.com/checkout/wh/```
+
+4. Select events to send from the 'Events To Send' select box (note: for the purpose of this project these are: ```payment_intent.succeeded``` & ```payment_intent.payment_failed```).
+
+5. At the top of the page, click 'Reveal' under the 'Signing secret' tab. Copy this and add it to the Heroku 'Config Vars' (```STRIPE_WH_SECRET```).
+
+NOTE - These varabales must match the varibales in the project level settings.py file.
+
+6. To test, send a test webhook from the Stripe Webhook panel and check the logged response.
+
+### Setting up Django to Send Emails
+
+Gmail was used for the email provider for this site.
+
+1. Log into Gmail.
+
+2. Navigate to Gmail settings in upper right of the screen.
+
+3. Navigate to the 'Accounts and Import' tab and select 'Other Google Account Settings'.
+
+4. Select the 'Security' tab and under the 'Signing in to Google' section, select '2-Step Varification'.
+
+5. Click the 'Get Statrted' button and enter your password.
+
+6. Select a varification method/
+
+7. When prompted, enter the varification code and click 'Turn On'.
+
+8. Return to the 'Signing in to Google' section and click 'App Passwords'.
+
+9. Under 'Select App', select 'Mail', under 'Select Device' select 'Other' and name it Django.
+
+10. Click 'Generate'.
+
+11. A Modal will pop up with a 'Generated app password'. Copy this and click 'Done'.
+
+12. Return to the Heroku app settings and enter this code as a Config Variable with Key set as ```EMAIL_HOST_PASS```.
+
+13. Add another variable to the Heroku Config Vars with Key set as ```EMAIL_HOST_USER``` and set the Value to the Gmail account.
+
+14. Return to the project level settings.py file and add the following settings:
+```
+if 'DEVELOPMENT' in os.environ:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_FROM_EMAIL = 'site-name@example.com'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+```
+
+15. Navigate to the live site admin panel. Click 'Sites' and fill out the "Domain name" and "Display name" as appropirate (the name of the site).
+
+### Forking the GitHub Repository
+
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps:
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/theopmw/leftfield-clothing)
+2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+3. You should now have a copy of the original repository in your GitHub account.
+
+### Making a Local Clone
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/theopmw/theopmw/leftfield-clothing).
+2. Under the repository name, click "Clone or download".
+3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+4. Open Git Bash.
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type "git clone", and then paste the URL you copied in Step 3:
+
+```
+$ git clone https://github.com/theopmw/theopmw/leftfield-clothing
+```
+
+7. Press Enter and your local clone will be created.
