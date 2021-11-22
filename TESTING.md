@@ -70,6 +70,29 @@ The user stories are annotated below to describe functionality and highlight the
 
     - [x] The profile page displays the users default delivery information (which is saved if they check the checkbox when placing an order). They are able to update these details on the Profile page. The users order history is also displayed in chronological order. The order numbers act as links to open a confirmation with a full breakdown of the order.
 
+### Sorting and Searching
+
+- **Sort the list of available products by name, price, brand or rating**
+
+    - [x] From the All Products Page, the Sort Selector Box allows the user to sort all available items in ascending and decending order by name, price, brand or rating.
+
+- **Sort multiple subcategories of products simultaneously across broad categories such as clothing or footwear**
+
+    - [x] From the Category Page, the Sort Selector Box allows the user to sort categories of products in ascending and decending order by name, price, brand or rating.
+
+- **Sort products within a specific subcategory by name, price, brand or rating**
+
+    - [x] From the Subcategory Page, the Sort Selector Box allows the user to sort subcategories of products in ascending and decending order by name, price, brand or rating.
+
+- **Search for a product by name, description or brand**
+
+    - [x] The search bar allows the user to seach all available products by name, description or brand.
+
+    - [x] If the user submits an empty search, a Bootstrap toast is displayed to notify them that they haven't entered any search criteria.
+
+- **Easily see what I have searched for and the number of results**
+
+    - [x] If the user submits a successful search, the products that meet the search criteria are displayed. At the top of the page, the number of resuts and search term are displayed for the user, along with a link to return them to the All Products Page.
 
 
 ##  Bugs
