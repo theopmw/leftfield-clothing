@@ -8,7 +8,7 @@ The user stories are annotated below to describe functionality and highlight the
 
 - **View a list of available products**
 
-    - [x] The All Products nav menu item is clearly visible at the top of the page (or in the navbar toggler/burger menu on mobile and tablet) on all pages of the site and will redirect users to the All Products Page.
+    - [x] The All Products nav menu item is clearly visible at the top of the page (or in the navbar toggler/burger menu on mobile and tablet) on all pages of the site and will redirect users to the All Products page.
 
 - **View a specific category of products**
 
@@ -20,7 +20,7 @@ The user stories are annotated below to describe functionality and highlight the
 
     - [x] Beneath the page heading stating the category/subcategory is a list of subcategory buttons to allow the user to easily navigate between subcategories of the chosen category.
 
-    - [x] Under each product, the subcategory is displayed as part of the product details, clicking on this will open the chosen subcataegory page and display all products belonging to that subcategory.
+    - [x] Under each product, the subcategory is displayed as part of the product details, clicking on this will open the chosen subcategory page and display all products belonging to that subcategory.
 
 - **View details of an individual product, including name, price, description, rating, image and sizes if applicable**
 
@@ -32,7 +32,37 @@ The user stories are annotated below to describe functionality and highlight the
 
 #### Registration and User Accounts
 
+- **Easily register an account**
 
+    - [x] When no user is in session, thye Register menu item is available in the top nav menu (on all devices).
+
+    - [x] The form will check that the email and username are unique and not already registered in the DB. If they aren't unique, and error message will be displayed to the user to inform them that the username/email is already taken and prompt them to enter a new one.
+
+    - [x] The form will check if both passwords match and meet the designated criteria. If they don't, an error message will notify the user and prompt them to enter a new one.
+
+    - [x] If there are no validation errors, the account will be set up and the user will be redirected to the verify your email address page, a Bootstrap toast will notify the user that a confirmation email has been sent to their email address and once confirmed via the link in the email, they will be redirected to sign it to their new account.
+
+    - [x] If the user is already registered, there is a link above the form to redirect them to the Sign In Page.
+
+- **Easily login/logout**
+
+    - [x] The Sign In Page is clearly visible on the navigation menu, when there is no user in session (on all devices).
+
+    - [x] If the user inputs login credentials that do not match with any stored in the DB a message will be dispalyed to notify them that "The username and/or password you specified are not correct."
+
+    - [x]  Once logged in and a registered user is in session, they will have access to the Profile link in the top navigation menu. They will be redirected to the Home Page and a Bootstrap toast will notify them they have been successfully logged in.
+
+    - [x] If the user is does not have an account registered, there is a link above the form to redirect them to the Registration Page.
+
+    - [x] When a registered user is in session, the Logout menu item is displayed in the top navigation menu. When clicked, the user will be redirected to the Sign Out Page and can confirm they wish to sign out. Upon successful logout the user will be redirected to the Home Page and a Bootstrap toast notifies them thay have been successfully logged out.
+
+- **Easily recover my password if I lose access to my account**
+
+    - [x] On the Sign In Page, there is a link to reset password beneath the form. When clicked, the user is redirected to the Password Reset Page where they can enter their email to recieve an email containing a link allowing them to reset their password.
+
+- **Receive an email confirmation on successful registration of an account**
+
+    - [x] On registration of account, the user is sent an email to the email provided in the registration form with a link for them to confirm their email. On clicking this link, they are redirected 
 
 ##  Bugs
 
