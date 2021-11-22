@@ -62,7 +62,15 @@ The user stories are annotated below to describe functionality and highlight the
 
 - **Receive an email confirmation on successful registration of an account**
 
-    - [x] On registration of account, the user is sent an email to the email provided in the registration form with a link for them to confirm their email. On clicking this link, they are redirected 
+    - [x] On successful registration of account, the user is sent an email to the email address provided in the registration form with a link for them to confirm their email. On clicking this link, they are redirected to the Sign In page. A Bootstrap toast is displayed notifying the user of successful registration and email confirmation.
+
+- **Have a personal user profile to view my order history and save my personal information**
+
+    - [x] When a user is in session, the Profile page is available through the Account menu.
+
+    - [x] The profile page displays the users default delivery information (which is saved if they check the checkbox when placing an order). They are able to update these details on the Profile page. The users order history is also displayed in chronological order. The order numbers act as links to open a confirmation with a full breakdown of the order.
+
+
 
 ##  Bugs
 
