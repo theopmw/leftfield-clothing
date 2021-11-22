@@ -86,13 +86,70 @@ The user stories are annotated below to describe functionality and highlight the
 
 - **Search for a product by name, description or brand**
 
-    - [x] The search bar allows the user to seach all available products by name, description or brand.
+    - [x] The search bar allows the user to search all available products by name, description or brand.
 
     - [x] If the user submits an empty search, a Bootstrap toast is displayed to notify them that they haven't entered any search criteria.
 
 - **Easily see what I have searched for and the number of results**
 
     - [x] If the user submits a successful search, the products that meet the search criteria are displayed. At the top of the page, the number of resuts and search term are displayed for the user, along with a link to return them to the All Products Page.
+
+#### Purchasing and Checkout
+
+- **Easily select the size and quantity of a product when purchasing**
+
+    - [x] On the product detail page there is a Size selector box which displays the correct size type based on the type of product, or is hidden if the product does not have sizes.
+
+    - [x] On the product detail page there is a Quantity selctor box which allows the user to select the quantity of product (range between 1-100).
+
+- **View the items in my bag**
+
+    - [x] The Shopping Bag page displays all prodycts currently in the bag.
+
+    - [x] The user is able to use the quantity selector box to update the quantity of any product in the shopping bag or remove the item entirely.
+
+- **View the total cost of items in my bag**
+
+    - [x] At the bottom of the Shopping Bag page, the grand total of all items is diplayed including the delivery cost if applicable.
+
+- **View the total shipping cost of my order**
+
+    - [x] At the bottom of the Shopping Bag page, the delivery cost is displayed to the user.
+
+    - [x] If the order is less than the free delivery threshold (£50), the user is notified of how much more they njeed to spend to qualify for free shipping.
+
+    - [x] If the order is greater than the free delivery threshold, the delivery cost will be displayed as £0.00.
+
+- **Adjust the quantity of individual items in my bag**
+
+    - [x] On the Shopping Bag page, the user can easily update or remove items in the shopping bag using the quantity selector and the update and remove buttons.
+
+- **Easily enter my payment information**
+
+    - [x] On the Checkout page, the user can easily enter their details to place an order.
+
+     - [x] If the user has an account, is logged in and enters their details, they can check the checkbox to save the delivery information provided to their profile.
+
+    - [x] If the user has an account, is logged in, and has saved thier details to their profile, the Details and Delivery section of the checkout form will be pre-filled with these saved details. If they enter new details, they can check the checkbox to save these new details to their profile.
+
+    - [x] If there are any validation errors on the form, the user will be notified by an error message relating to the issue.
+
+- **Know that my personal information and payment details are secure**
+
+    - [x] As Stripe is used to handle all payments, their in-built security is applied to all payments mode through the site.
+
+- **View an order confirmation after checkout**
+
+    - [x] Upon successful checkout, the user is redirected to a confirmation page outlining all the details of the order and is informed that a confirmation email has been sent to the email address provided in the checkout form.
+
+- **Receive a confirmation email after checkout**
+
+    - [x] Upon successful checkout, the user will be sent a confirmation email containing the details of the order.
+
+
+
+
+
 
 
 ##  Bugs
