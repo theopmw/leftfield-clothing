@@ -1,3 +1,39 @@
+## User Stories
+
+The user stories are annotated below to describe functionality and highlight the way in which the project fulfils the objectives set out. Relevant screenshots relating to each of the user stories below can be found in the main [README.md](https://github.com/theopmw/leftfield-clothing/blob/main/README.md) file.
+
+### As a User I Would like to:
+
+#### Viewing and Navigation
+
+- **View a list of available products**
+
+    - [x] The All Products nav menu item is clearly visible at the top of the page (or in the navbar toggler/burger menu on mobile and tablet) on all pages of the site and will redirect users to the All Products Page.
+
+- **View a specific category of products**
+
+    - [x] The Category nav menu items are clearly visible at the top of the page (or in the navbar toggler/burger menu on mobile and tablet) on all pages of the site and will redirect users to the chosen category page.
+
+- **View a specific subcategory of products**
+
+    - [x] Hovering over a category in the nav menu (or clicking on mobile and tablet devices) will open the subcategory menu for each category.
+
+    - [x] Beneath the page heading stating the category/subcategory is a list of subcategory buttons to allow the user to easily navigate between subcategories of the chosen category.
+
+    - [x] Under each product, the subcategory is displayed as part of the product details, clicking on this will open the chosen subcataegory page and display all products belonging to that subcategory.
+
+- **View details of an individual product, including name, price, description, rating, image and sizes if applicable**
+
+    - [x] Clicking any product image will open the specific product detail page which provides users with full details of the product, the ability to select quantities and sizes of the product and a button to add the product to their bag.
+
+- **Easily review the total of my purchases**
+
+    - [x] The Shopping Bag can be easily navigated to from the top navigation menu and is displayed on all pages of the site on all device sizes. The grand total is clearly displayed at the bottom of the page, following a summary of all items in the bag.
+
+#### Registration and User Accounts
+
+
+
 ##  Bugs
 
 - ### Django admin: populating select options depending on another select
