@@ -60,7 +60,7 @@ This project is part of my [Code Institute](https://codeinstitute.net/) Full Sta
 
 ![All product sorting](media/readme_screenshots/all_product_sorting.png)
 
-- [x] Sort multiple categories of products simultaneously across broad categories such as clothing or footwear
+- [x] Sort multiple subcategories of products simultaneously across broad categories such as clothing or footwear
 
 ![Category sorting](media/readme_screenshots/category_product_sorting.png)
 
@@ -131,6 +131,25 @@ Possible additions:
 - [x] See which products are being viewed the most
 
 - [x] See product sales volumes to see which products are selling best
+
+### Design
+
+The site takes inspiration from similar sites such as [Blacksmith Store](https://www.blacksmith-store.com/), [End](https://www.endclothing.com/gb) and [Flatspot](https://www.flatspot.com/). The aim was to keep the site aesthetic clean and striped back to provide a positive UX and keep the focal point on the products on offer.
+
+### Colour Scheme
+
+After researching a wide range of similar sites, the decision was made to keep colours on the site to a minimum, meaning the users' main focus would always be on the products. All buttons and text have been kept to black (#000000) and white (#ffffff) and invert on hover to provide a clean and clear UX with the exeption of the delete button for admin users which is red (#d9534f) on hover. Form validation errors are also displayed in red (#dc3545) to draw the users attention to them.
+
+### Typography
+
+Raleway was used for the site logo as is a clear and clean. It was also used accross the site for the navigation menu, page headings and buttons to tie the site in with the site logo/branding.
+
+Roboto was used as the secondary font to provide a point of difference and was chosen as it is a very clear and legible font. It is used in the delivery banner, for the product detail text and for sections of the product detail pages. 
+
+### Imagery
+
+The imagery for the site has been taken from [End](https://www.endclothing.com/gb). All images belong to End and are only used in this site for educational purposes.
+
 
 ## Features
 
@@ -258,8 +277,8 @@ Possible additions:
 * [Balsamiq](https://balsamiq.com/) - **Balsamiq** was used to create the wireframes during the design process.
 * [Web Formatter](https://webformatter.com/) - **Web Formatter** was used to beautify code.
 * [Am I Responsive](http://ami.responsivedesign.is/) - **Am I Responsive** was used to test page layouts during the build process.
-[GMail](https://gmail.com) - **Gmail** was used to provide the SMPT server, allowing the application to handle emails.
-* [PostgreSQL](https://www.postgresql.org/) - **PostgreSQL used for the relational database, hosted and deployed via Heroku.
+[Gmail](https://gmail.com) - **Gmail** was used to provide the SMPT server, allowing the application to handle emails.
+* [PostgreSQL](https://www.postgresql.org/) - **PostgreSQL** used for the relational database, hosted and deployed via Heroku.
 
 ## Testing
 
