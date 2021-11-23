@@ -1,4 +1,4 @@
-## User Stories
+## User Stories Testing
 
 The user stories are annotated below to describe functionality and highlight the way in which the project fulfils the objectives set out. Relevant screenshots relating to each of the user stories below can be found in the main [README.md](https://github.com/theopmw/leftfield-clothing/blob/main/README.md) file.
 
@@ -174,6 +174,139 @@ Admin users have full access to **CRUD** operations - **C**reate, **R**ead, **U*
     - [x] From the Products page or an individual Product Detail page, admin users have access to the delete product button.
 
     - [x] This button will permanently delete a product from the DB.
+
+## Manual Testing
+
+The site has been tested on a wide range of devices and browsers to confirm functionality.
+
+### Navigation menu
+
+- [x] Test all navigation menu items work on all screen sizes.
+
+- [x] Log in and out and check correct navigation menu items are shown in the Account menu.
+
+### Search bar
+
+- [x] Enter a search query using product name, description or brand and ensure correct results are displayed and correct search term and number of results are shown at top of page.
+
+- [x] Enter a blank seach to test error message is displayed.
+
+- [x] Perform search that yields no resuts to test that '0 Products found for "query"' is displayed to the user at the top of the page.
+
+### Footer
+
+- [x] Test footer social links all open in new tab.
+
+- [x] Test email link opens correctly.
+
+### Home Page
+
+- [x] Test image is responsive and displays correctly on all screen sizes.
+
+- [x] Test Shop Now button redirects to All Products page.
+
+### All Products Page
+
+- [x] Confirm page layout is responsive, clear and readable on all screen sizes and devices.
+
+- [x] Confirm number of products text displays correctly.
+
+- [x] Confirm all sort parameters work correctly.
+
+- [x] Confirm clicking on a product image opens the Product Detail page.
+
+- [x] Confirm clicking on a product subcategory tag opens the correct Subcategory page.
+
+- [x] Confirm Back to Top button works correctly.
+
+- [x] (Admin/superuser only): Ensure Edit button launches the Product Management Edit Product page and all form fields are pre-filled.
+    - Ensure on confirmation, product details have been successfully updated.
+
+- [x] (Admin/superuser only) Ensure Delete button deletes a product.
+    - Confirm product deleted successfully from DB.
+
+### Product Detail Page
+
+- [x] Confirm page layout is responsive, clear and readable on all screen sizes and devices.
+
+- [x] Confirm URLs display correctly with slug value and product id in 'product/slug/id/' format.
+
+- [x] Confirm clicking product image opens the image in a new tab.
+
+- [x] Confirm clicking the subcategory tag opens the relevant Subcategory page.
+
+- [x] Confirm size options are dynamic and are relevant to the specific product category/subcategory.
+
+- [x] Confirm quantity selector works correctly and that the user cannot select a quantity outside of the set range (0-100).
+
+- [x] (Admin/superuser only): Ensure Edit button launches the Product Management Edit Product page and all form fields are pre-filled.
+    - Ensure on confirmation, product details have been successfully updated.
+
+- [x] (Admin/superuser only) Ensure Delete button deletes a product.
+    - Confirm product deleted successfully from DB.
+
+- [x] Confirm Keep Shopping button returns the user to the All Products Page.
+
+- [x] Confirm the Add To Bag button works correctly, the correct product, size and quantity are added to the bag and the Bootstrap toast launches and contains the correct information.
+
+- [x] If the bag total is below the free delivery threshold, confirm that the Bootstrap toast contains the delivery cost and there is a message to the user notifying them of the amount they need to spend to qualify for free shipping. 
+
+- [x] Confirm Bootstrap toast 'Go To Shopping Bag' button redirects the user to the Shopping Bag page.
+
+### Shopping Bag Page
+
+- [x] Confirm page layout is responsive, clear and readable on all screen sizes and devices.
+
+- [x] Confirm shopping bag displays correct items and all details for each product are rendered correctly.
+
+- [x] If multiple sizes of the same product are added to the shopping bag, confirm they are each on their own line and that the sizes are displayed correctly.
+
+- [x] Confirm quantity selector works correctly and that the user cannot select a quantity outside of the set range (0-100).
+
+- [x] Confirm that update quantity button works correctly and a Bootstrap toast is displayed to notify the user of the updated quantity.
+
+- [x] Confirm that the remove item button works correctly and a Bootstrap toast is displayed to notify the user of the removed item.
+
+- [x] Confirm that each item subtotal is correct and updates accordingly when an item quantity is updated.
+
+- [x] Confirm that the Bag total is correct and updates accordingly.
+
+- [x] Confirm that the delivery cost is correct and updates accordingly.
+
+- [x] If the bag total is below the free delivery threshold, confirm that the delivery total is correct, that it is added to the grand total and that there is a message to the user notifying them of the amount they need to spend to qualify for free shipping. 
+
+- [x] Confirm that the grand total is correct and updates accordingly.
+
+- [x] Confirm that the Keep Shopping button redirects the user to the All Products Page.
+
+### Checkout Page
+
+- [x] Confirm page layout is responsive, clear and readable on all screen sizes and devices.
+
+- [x] Confirm that form renders correctly and all placeholders are correct.
+
+- [x] If user in session, confirm all fields pre-filled as expected.
+
+- [x] Attempt to submit form with mandatory fields left blank to test tooltips display correctly.
+
+- [x] Test country select box works correctly.
+
+- [x] Attempt to checkout with invalid card number to test error message is displayed.
+
+- [x] Attempt to checkout with invalid expiry date to test error message is displayed.
+
+- [x] Confirm Adjust Bag button redirects uder back to their bag.
+
+- [x] Confirm total to pay is displayed underneath Complete Order button.
+
+- [x] If no user in session, confirm 'Create an account or login to save this information' message is displayed.
+
+- [x] If user in session, confirm 'Save this delivery information to my profile' checkbox is displayed and saves/updates user details when completing an order.
+
+- [x] Checkout with complete form and confirm loader displays and user is then redirected to Checkout Success page.
+
+- [x] Break form and confirm order is still processed and order is added to users profile and email confirmation is still sent to test Stripe webhooks are working as they should.
+
 
 ##  Bugs
 
