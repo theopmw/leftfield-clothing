@@ -259,6 +259,8 @@ The site has been tested on a wide range of devices and browsers to confirm func
 
 - [x] Confirm shopping bag displays correct items and all details for each product are rendered correctly.
 
+- [x] Confirm 'Your bag is empty' message is displayed when navigating to the Shopping Bag page when empty. 
+
 - [x] If multiple sizes of the same product are added to the shopping bag, confirm they are each on their own line and that the sizes are displayed correctly.
 
 - [x] Confirm quantity selector works correctly and that the user cannot select a quantity outside of the set range (0-100).
@@ -303,17 +305,130 @@ The site has been tested on a wide range of devices and browsers to confirm func
 
 - [x] If user in session, confirm 'Save this delivery information to my profile' checkbox is displayed and saves/updates user details when completing an order.
 
+- [x] Confirm Order Summary displays the correct number of items in the users order.
+
+- [x] Confirm Order Summary displays the correct items and details of the order are correct.
+
+- [x] Confirm Order Summary displays the correct totals.
+
 - [x] Checkout with complete form and confirm loader displays and user is then redirected to Checkout Success page.
 
 - [x] Break form and confirm order is still processed and order is added to users profile and email confirmation is still sent to test Stripe webhooks are working as they should.
 
+### Order Success Page
+
+- [x] Confirm page layout is responsive, clear and readable on all screen sizes and devices.
+
+- [x] Confirm confirmation email is correct.
+
+- [x] Confirm all details are correct and relate to the information provided in the checkout form.
+
+### Registration/Sign Up Page
+
+- [x] Confirm page layout is responsive, clear and readable on all screen sizes and devices.
+
+- [x] Confirm 'Already have an account? Then please sign in' message is displayed at top of page and link redirects the user to the Sign In page.
+
+- [x] Confirm that form renders correctly and all placeholders are correct.
+
+- [x] Attempt to submit form with mandatory fields left blank to test tooltips display correctly.
+
+- [x] Attempt to register with an email that is already in the DB to confirm error message is displayed to notify user that 'A user is already registered with this e-mail address'.
+
+- [x] Attempt to register with a username that is already in the DB to confirm error message is displayed to notify user that 'A user with that username already exists'.
+
+- [x] Attempt to register with email addresses that don't match to confirm 'You must type the same email each time' message is displayed to the user.
+
+- [x] Attempt to register with passords that don't match to confirm 'You must type the same password each time' message is displayed to the user.
+
+- [x] Click the Back to Login button to confirm it redirects the user back to the Sign In page.
+
+- [x] Register with valid credentials to confirm that the user is redirected to the Verify Your Email Address Page and a Bootstrap toast is displayed notifying the user to check their email.
+
+- [x] Click the link in the verification email to confirm that it redirects the user to the Confirm Email Address page.
+
+### Confirm Email Address Page
+
+- [x] Confirm page layout is responsive, clear and readable on all screen sizes and devices.
+
+- [x] Test that the Confirm button redirects the user to the home page and a Bootstrap toast is displayed notifying the user that thier email has been confirmed.
+
+### Sign In Page
+
+- [x] Confirm page layout is responsive, clear and readable on all screen sizes and devices.
+
+- [x] Confirm 'If you have not created an account yet, then please sign up first.' message is displayed at top of page and link redirects the user to the Sign Up page.
+
+- [x] Enter an incorrect username or password to confirm the 'The username and/or password you specified are not correct' message is displayed.
+
+- [x] Test that the Home button redirects the user to the Home page.
+
+- [x] Enter valid credentials and test that the remember me checkbox works.
+
+- [x] Enter valid credentials and test that the user is redirected to the home page.
+
+### Add Product Page
+
+- [x] Confirm page layout is responsive, clear and readable on all screen sizes and devices.
+
+- [x] Confirm that form renders correctly and all labels and placeholders are correct.
+
+- [x] Attempt to submit form with mandatory fields left blank to test tooltips display correctly.
+
+- [x] Confirm that fields cannot exceed max length values set out in the model.
+
+- [x] Attempt to enter an invalid slug and confirm that 'Enter a valid “slug” consisting of letters, numbers, underscores or hyphens' error message is displayed.
+
+- [x] Attempt to enter a slug that is not unique, confirm that 'Product with this Slug already exists' error message is displayed.
+
+- [x] Attempt to add product with invalid price field. Confirm that 'Ensure that there are no more than 6 digits in total' error message is displayed.
+
+- [x] Attempt to enter a price without a decimal. Confirm that 'Ensure that there are no more than 4 digits before the decimal point' error message is displayed.
+
+- [x] Confirm that Category and Subcategory fields display the correct options.
+
+- [x] Confirm Select Image button works as expected and file name is displayed once selected.
+
+- [x] On successful form submission, confirm user is redirected to Product Detail page for the newly added product and Bootstrap toast notifies user that product has been added.
+
+- [x] Check admin to confirm product has been added to DB.
+
+- [x] Check AWS Bucket to confirm product image has been added to media folder.
+
+### Edit Product Page
+
+- [x] Confirm page layout is responsive, clear and readable on all screen sizes and devices.
+
+- [x] Confirm that form renders correctly and all labels and placeholders are correct.
+
+- [x] Attempt to submit form with mandatory fields left blank to test tooltips display correctly.
+
+- [x] Confirm that fields cannot exceed max length values set out in the model.
+
+- [x] Attempt to enter an invalid slug and confirm that 'Enter a valid “slug” consisting of letters, numbers, underscores or hyphens' error message is displayed.
+
+- [x] Attempt to enter a slug that is not unique, confirm that 'Product with this Slug already exists' error message is displayed.
+
+- [x] Attempt to add product with invalid price field. Confirm that 'Ensure that there are no more than 6 digits in total' error message is displayed.
+
+- [x] Attempt to enter a price without a decimal. Confirm that 'Ensure that there are no more than 4 digits before the decimal point' error message is displayed.
+
+- [x] Confirm that Category and Subcategory fields display the correct options.
+
+- [x] Confirm Select Image button works as expected and file name is displayed once selected.
+
+- [x] On successful form submission, confirm user is redirected to Product Detail page for the newly upated product and Bootstrap toast notifies user that product has been updated.
+
+- [x] Check admin to confirm product has been updated in DB.
+
+- [x] Check AWS Bucket to confirm product image has been added to media folder.
 
 ##  Bugs
 
 - ### Django admin: populating select options depending on another select
 
 Expected:  
-The aim was to create a data structure where each product related to a subcategory and each subcategory related to a category. When adding products in the Django admin panel the values available to select in the subcategories dropdown should only be childern of the parent category.
+The aim was to create a data structure where each product related to a subcategory and each subcategory related to a category. When adding products in the Django admin panel the values available to select in the subcategories dropdown should only be children of the parent category.
 
 Testing:  
 Attempt to add a product and check whether subcategory dropdown items are filtering correctly based on the parent category selected in the category dropdown.
@@ -548,7 +663,7 @@ class Product(models.Model):
     # Everything else in model
 ``` 
 
-Update URL path in template to take product id - [products/templates/products/products.html](products/templates/products/products.html)  
+Update URL path in template to take product id - [products/templates/products/products.html](products/templates/products/products.html) :
 ```
 <a href="{% url 'product_detail' product.slug product.id %}">
     <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
