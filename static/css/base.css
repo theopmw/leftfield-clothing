@@ -261,6 +261,10 @@ input[name='q']::placeholder {
     padding-right: 20px !important;
 }
 
+.contact-email:hover {
+    text-decoration: none;
+}
+
 /* --------------------- Social links */
 
 .social-links {
