@@ -16,8 +16,12 @@ urlpatterns = [
     # slug and product_id parameters modified from:
     # https://wellfire.co/learn/fast-and-beautiful-urls-with-django/
     path('edit/<int:product_id>/', views.edit_product, name='edit_product'),
-    path('delete/<int:product_id>/', views.delete_product, name='delete_product'),
-    path('<slug:slug>/<int:product_id>/', views.product_detail, name='product_detail'),
+    path(
+        'delete/<int:product_id>/', views.delete_product,
+        name='delete_product'),
+    path(
+        '<slug:slug>/<int:product_id>/', views.product_detail,
+        name='product_detail'),
     # re_path(r'^getSubcategory/$', views.get_subcategory),
     path('add/', views.add_product, name='add_product'),
     ]
