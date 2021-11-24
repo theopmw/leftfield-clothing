@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Creit: code for blog models modified from:
+# Credit: code for blog models modified from:
 # https://djangocentral.com/building-a-blog-application-with-django/
 STATUS = (
     (0, "Draft"),
