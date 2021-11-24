@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="font-raleway text-uppercase">The Leftfield Blog</h2>
+            <hr>
+        </div>
+    </div>
+
+<div class="row">
+    {% for post in post_list %}
+        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mt-3">
+            <div class="card h-100 border-0">
+                <!-- Image -->
+                {% if post.image %}
+                    <a href="{% url 'post_detail' post.slug %}">
+                        <img class="card-img-top img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
+                    </a>
+                {% else %}
+                    <a href="{% url 'post_detail' post.slug %}">
+                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.title }}">
+                    </a>
+                {% endif %}
+                <div class="card-body pb-0">
+                    <!-- Title -->
+                    <p class="lead mb-0 font-raleway">{{ post.title }}</p>
+                    <!-- Author -->
+                    <p class="small mb-0 text-left text-muted font-raleway">{{ post.author }}</p>
+            
+                </div>
+                <div class="card-footer bg-white pt-0 border-0 text-left">
+                    <div class="row">
+                        <div class="col">
+                            <!-- Content -->
+                            <p class="lead mb-0 text-left font-roboto text-truncate">{{ post.content }}</p>
+                            <!-- Created on -->
+                            <p class="small mb-0 text-left text-muted font-raleway">Posted: {{ post.created_on }}</p>
+                            <a href="{% url 'post_detail' post.slug %}" class="btn btn-outline-black rounded-0 mt-2">
+                                <span class="font-raleway text-uppercase">Read more</span>
+                                <span class="icon">
+                                    <i class="fas fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Responsive card layout -->
+        {% if forloop.counter|divisibleby:1 %}
+            <div class="col-12 d-sm-none mb-5">
+                <hr>
+            </div>
+        {% endif %}                        
+        {% if forloop.counter|divisibleby:2 %}
+            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                <hr>
+            </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:3 %}
+            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                <hr>
+            </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:4 %}
+            <div class="col-12 d-none d-xl-block mb-5">
+                <hr>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+</div>
+{% endblock %}
