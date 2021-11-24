@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="font-raleway text-uppercase">The Leftfield Blog</h2>
+            <hr>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+            <div class="product-details-container mb-3 mb-md-5 mt-md-5">
+                <!-- Title -->
+                <h4 class="font-raleway mb-0">{{ post.title }}</h4>
+                <!-- Author -->
+                <p class="small font-raleway mb-0 text-left text-muted">{{ post.author }}</p>
+                <!-- Posted -->
+                <p class="small font-raleway mb-0 text-left text-muted">Posted: {{ post.created_on }}</p>
+                <!-- Content -->
+                <p class="font-roboto mt-3">{{ object.content }}</p>
+            </div>
+            <div class="mb-3">
+                <!-- Back to blog button -->
+                <a href="{% url 'post_list' %}" class="btn btn-outline-black rounded-0 mt-2">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="font-raleway text-uppercase">Back to Blog</span>
+                </a>
+            </div>
+        </div> 
+        <!-- Image -->
+        <div class="col-12 col-md-6 col-lg-4 order-first order-md-last">
+            <div class="image-container my-5">
+                {% if post.image %}
+                    <a href="{{ post.image.url }}" target="_blank">
+                        <img class="card-img-top img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
+                    </a>
+                    {% else %}
+                    <a href="{{ post.image.url }}">
+                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.title }}">
+                    </a>
+                {% endif %}
+            </div>
+        </div>   
+    </div>
+</div>
+
+{% endblock content %}
