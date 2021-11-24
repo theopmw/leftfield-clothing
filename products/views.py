@@ -160,8 +160,8 @@ def add_product(request):
             # Save it
             product = form.save()
             # Success message
-            messages.success(request, "Product ({product.name}) \
-                added successfully.")
+            messages.success(request, f'Product ({product.name}) \
+                added successfully.')
             # Redirect back to add product view
             return redirect(reverse(
                 'product_detail', args=[product.slug, product.id]))
