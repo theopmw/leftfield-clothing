@@ -1,10 +1,6 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
-        <li class="nav-item main-nav-dropdown font-raleway d-block d-lg-none">
-            <a class="font-weight-bold uppercase nav-link text-black mr-5" href="{% url 'home' %}" id="home-link">
-                Home
-            </a>
-        </li>
+        <!-- All products -->
         <li class="nav-item dropdown main-nav-dropdown font-raleway">
             <a class="font-weight-bold uppercase nav-link text-black mr-5" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Products
@@ -18,6 +14,7 @@
             </div>
         </li>
 
+        <!-- Clothing -->
         <li class="nav-item dropdown main-nav-dropdown font-raleway">
             <a class="font-weight-bold uppercase nav-link text-black mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Clothing
@@ -32,6 +29,7 @@
             </div>
         </li>
 
+        <!-- Footwear -->
         <li class="nav-item dropdown main-nav-dropdown font-raleway">
             <a class="font-weight-bold uppercase nav-link text-black mr-5" href="#" id="footwear-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Footwear
@@ -44,6 +42,7 @@
             </div>
         </li>
 
+        <!-- Accessories -->
         <li class="nav-item dropdown main-nav-dropdown font-raleway">
             <a class="font-weight-bold uppercase nav-link text-black mr-5 " href="#" id="accessories-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Accessories
@@ -56,16 +55,9 @@
             </div>
         </li>
 
+        <!-- Blog -->
         <li class="nav-item dropdown main-nav-dropdown font-raleway">
-            <a class="font-weight-bold uppercase nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Special Offers
-            </a>
-            <div class="dropdown-menu border-0 rounded-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item pl-lg-2">All Specials</a>
-                <a href="" class="dropdown-item pl-lg-2">New Arrivals</a>
-                <a href="" class="dropdown-item pl-lg-2">Sale</a>
-            
-            </div>
+            <a class="font-weight-bold uppercase nav-link text-black" href="{% url 'post_list' %}" id="blog-link">Blog</a>
         </li>
     </ul>
 </div>
