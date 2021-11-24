@@ -12,6 +12,7 @@
 {% block content %}
 <div class="overlay"></div>
     <div class="container-fluid">
+        <!-- Page heading -->
         <div class="row">
             <div class="col text-center mt-3 text-uppercase">
                     {% if current_categories %}
@@ -28,6 +29,7 @@
                 <hr class="w-50 mb-1">
             </div>
         </div>
+        <!-- Category/Subcategory badges -->
         <div class="row">
             <div id="items" class="col text-center mt-3">
                 {% for category in current_categories %}
@@ -76,49 +78,45 @@
                         <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=socks">
                             <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Socks</span>
                         </a>
-                    {% elif current_categories is special_offers %}
-                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=special_offers">
-                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">SPECIAL OFFERS TEST BUTTON</span>
-                        </a>
                     {% endif %}
                 {% endfor %}
                 {% for subcategory in current_subcategories %}
-                {% if subcategory.category.name == "clothing" %}
-                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=clothing">
-                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">All Clothing</span>
-                    </a>
-                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=t_shirts">
-                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">T-Shirts</span>
-                    </a>
-                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=shirts">
-                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Shirts</span>
-                    </a>
-                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=sweatshirts_hoodies">
-                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Sweatshirts & Hoodies</span>
-                    </a>
-                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=coats_jackets">
-                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Coats & Jackets</span>
-                    </a>
-                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=jeans_trousers">
-                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Jeans & Trousers</span>
-                    </a>
-                {% elif subcategory.category.name == "footwear" %}
-                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=footwear">
-                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">All Footwear</span>
-                    </a>
-                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=trainers">
-                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Trainers</span>
-                    </a>
-                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=boots">
-                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Boots</span>
-                    </a>
-                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=shoes">
-                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Shoes</span>
-                    </a>
-                {% elif subcategory.category.name == "accessories" %}
-                    <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=accessories">
-                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">All Accessories</span>
-                    </a>
+                    {% if subcategory.category.name == "clothing" %}
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=clothing">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">All Clothing</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=t_shirts">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">T-Shirts</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=shirts">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Shirts</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=sweatshirts_hoodies">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Sweatshirts & Hoodies</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=coats_jackets">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Coats & Jackets</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=jeans_trousers">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Jeans & Trousers</span>
+                        </a>
+                    {% elif subcategory.category.name == "footwear" %}
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=footwear">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">All Footwear</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=trainers">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Trainers</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=boots">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Boots</span>
+                        </a>
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=shoes">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Shoes</span>
+                        </a>
+                    {% elif subcategory.category.name == "accessories" %}
+                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=accessories">
+                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">All Accessories</span>
+                        </a>
                         <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=bags">
                             <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Bags</span>
                         </a>
@@ -128,18 +126,16 @@
                         <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?subcategory=socks">
                             <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Socks</span>
                         </a>
-                    {% elif current_categories is special_offers %}
-                        <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=special_offers">
-                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">SPECIAL OFFERS TEST BUTTON</span>
-                        </a>
                     {% endif %}
                 {% endfor %} 
             </div>
         </div>
+
         <div class="row">
             <div class="product-container col-10 offset-1">
                 <div class="row mt-1 mb-2">
                     <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                        <!-- Sort selector -->
                         <div class="sort-select-wrapper pt-2 w-75">
                             <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
@@ -149,13 +145,12 @@
                                 <option value="brand_desc" {% if current_sorting == 'brand_desc' %}selected{% endif %}>Brand (Z-A)</option>
                                 <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
                                 <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
-                                <!-- <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
-                                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option> -->
-                                <option value="subcategory_asc" {% if current_sorting == 'subcategory_asc' %}selected{% endif %}>Category (A-Z)</option>
-                                <option value="subcategory_desc" {% if current_sorting == 'subcategory_desc' %}selected{% endif %}>Category (Z-A)</option>
+                                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
                             </select>
                         </div>
                     </div>
+                    <!-- Product count & search results -->
                     <div class="col-12 col-md-6 order-md-first">
                         <p class="text-muted mt-3 text-center text-md-left">
                             {% if search_term or current_categories or current_subcategories or current_sorting != 'None_None' %}
@@ -165,33 +160,33 @@
                         </p>
                     </div>
                 </div>
+                <!-- Product cards -->
                 <div class="row">
                     {% for product in products %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mt-3">
+                            <!-- Image -->
                             <div class="card h-100 border-0">
                                 {% if product.image %}
-                                <!-- Credit build links with slugs modifed from
-                                https://stackoverflow.com/questions/63481787/how-to-display-uniquely-generated-slugs-in-urls -->
-                                <a href="{% url 'product_detail' product.slug product.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                                </a>
+                                    <!-- Credit build links with slugs modifed from
+                                    https://stackoverflow.com/questions/63481787/how-to-display-uniquely-generated-slugs-in-urls -->
+                                    <a href="{% url 'product_detail' product.slug product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                    </a>
                                 {% else %}
-                                <a href="{% url 'product_detail' product.slug product.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                                </a>
+                                    <a href="{% url 'product_detail' product.slug product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                    </a>
                                 {% endif %}
                                 <div class="card-body pb-0">
+                                    <!-- Name -->
                                     <p class="lead mb-0 font-raleway">{{ product.name }}</p>
+                                    <!-- Brand -->
                                     <p class="small mb-0 text-left text-muted font-raleway">{{ product.brand }}</p>
-                                    <!-- {% if product.brand %}
-                                        <p class="small mt-1 mb-0">
-                                            <a class="text-muted" href="{% url 'products' %}?brand={{ product.brand }}">{{ product.brand }}</a>
-                                        </p>
-                                    {% endif %} -->
                                 </div>
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
                                         <div class="col">
+                                            <!-- Rating -->
                                             <p class="lead mb-0 text-left font-roboto font-weight-bold">£{{ product.price }}</p>
                                             {% if product.rating %}
                                                 <small class="text-muted font-roboto"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
@@ -199,23 +194,26 @@
                                                 <small class="text-muted font-roboto">No Rating</small>
                                             {% endif %}
                                             {% if product.subcategory %}
+                                                <!-- Subcategory -->
                                                 <p class="small mt-1 mb-0 font-roboto">
                                                     <a class="text-muted" href="{% url 'products' %}?subcategory={{ product.subcategory.name }}">
                                                         <i class="fas fa-tags mr-1"></i>{{ product.subcategory.friendly_name }}
                                                     </a>
                                                 </p>
                                             {% endif %}
+                                            <!-- Edir/delete buttons -->
                                             {% if request.user.is_superuser %}
-                                            <div class="admin-buttons mt-2">
-                                                <a class="edit-button btn-sm btn-outline-black font-raleway text-uppercase rounded-0" href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                                <a class="delete-button btn-sm btn-outline-black font-raleway text-uppercase rounded-0" href="{% url 'delete_product' product.id %}">Delete</a>
-                                            </div>
+                                                <div class="admin-buttons mt-2">
+                                                    <a class="edit-button btn-sm btn-outline-black font-raleway text-uppercase rounded-0" href="{% url 'edit_product' product.id %}">Edit</a> | 
+                                                    <a class="delete-button btn-sm btn-outline-black font-raleway text-uppercase rounded-0" href="{% url 'delete_product' product.id %}">Delete</a>
+                                                </div>
                                             {% endif %}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- Responsive card layout -->
                         {% if forloop.counter|divisibleby:1 %}
                             <div class="col-12 d-sm-none mb-5">
                                 <hr>
