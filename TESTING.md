@@ -205,7 +205,7 @@ The site has been tested on a wide range of devices and browsers to confirm func
 
 - [x] Test Shop Now button redirects to All Products page.
 
-### All Products Page
+### All Products Page
 
 - [x] Confirm page layout is responsive, clear and readable on all screen sizes and devices.
 
@@ -229,7 +229,7 @@ The site has been tested on a wide range of devices and browsers to confirm func
 
 - [x] Confirm page layout is responsive, clear and readable on all screen sizes and devices.
 
-- [x] Confirm URLs display correctly with slug value and product id in 'product/slug/id/' format.
+- [x] Confirm URLs display correctly with slug value and product id in '/product/slug/id/' format.
 
 - [x] Confirm clicking product image opens the image in a new tab.
 
@@ -367,6 +367,12 @@ The site has been tested on a wide range of devices and browsers to confirm func
 
 - [x] Enter valid credentials and test that the user is redirected to the home page.
 
+### Sign Out Page
+
+- [x] Confirm Cancel button works correctly and redirects user to the Home Page
+
+- [x] Confirm Sign Out button works correctly and redirects user to the Home Page, Bootstrap toast notifies user they have succesfully been logged out and user has been logged out of their account.
+
 ### Add Product Page
 
 - [x] Confirm page layout is responsive, clear and readable on all screen sizes and devices.
@@ -388,6 +394,8 @@ The site has been tested on a wide range of devices and browsers to confirm func
 - [x] Confirm that Category and Subcategory fields display the correct options.
 
 - [x] Confirm Select Image button works as expected and file name is displayed once selected.
+
+- [x] If form fails to submit due to validation errors, confirm Bootstrap error toast is displayed.
 
 - [x] On successful form submission, confirm user is redirected to Product Detail page for the newly added product and Bootstrap toast notifies user that product has been added.
 
@@ -416,6 +424,8 @@ The site has been tested on a wide range of devices and browsers to confirm func
 - [x] Confirm that Category and Subcategory fields display the correct options.
 
 - [x] Confirm Select Image button works as expected and file name is displayed once selected.
+
+- [x] If form fails to submit due to validation errors, confirm Bootstrap error toast is displayed.
 
 - [x] On successful form submission, confirm user is redirected to Product Detail page for the newly upated product and Bootstrap toast notifies user that product has been updated.
 
