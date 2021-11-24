@@ -14,7 +14,7 @@ class Category(models.Model):
     name = models.CharField(max_length=254, db_index=True)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     slug = models.SlugField(
-        max_length=150, unique=True, db_index=True, default='NULL')
+        max_length=150, unique=True, db_index=True)
 
     class Meta:
         verbose_name = 'category'
@@ -37,7 +37,7 @@ class SubCategory(models.Model):
     name = models.CharField(max_length=254, db_index=True)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     slug = models.SlugField(
-        max_length=150, unique=True, db_index=True, default='NULL')
+        max_length=150, unique=True, db_index=True)
 
     class Meta:
         verbose_name = 'subcategory'
@@ -61,7 +61,7 @@ class Product(models.Model):
 
     name = models.CharField(max_length=254, db_index=True)
     slug = models.SlugField(
-        max_length=150, unique=True, db_index=True, default='NULL')
+        max_length=150, unique=True, db_index=True)
     category = models.ForeignKey(
         'Category', related_name='products',
         on_delete=models.CASCADE)

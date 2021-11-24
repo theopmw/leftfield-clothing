@@ -14,6 +14,7 @@ class ProductAdmin(admin.ModelAdmin):
         'rating',
         'image',
     )
+    prepopulated_fields = {'slug': ('name',)}
 
     ordering = ('sku',)
 
@@ -25,6 +26,7 @@ class SubCategoryAdmin(admin.ModelAdmin):
         'slug',
         'category',
     )
+    prepopulated_fields = {'slug': ('name',)}
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -33,6 +35,7 @@ class CategoryAdmin(admin.ModelAdmin):
         'name',
         'slug',
     )
+    prepopulated_fields = {'slug': ('name',)}
 
 
 admin.site.register(Product, ProductAdmin)
