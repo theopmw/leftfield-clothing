@@ -43,8 +43,8 @@
                     <a href="{{ post.image.url }}" target="_blank">
                         <img class="card-img-top img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
                     </a>
-                    {% else %}
-                    <a href="{{ post.image.url }}">
+                {% else %}
+                    <a href="">
                         <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.title }}">
                     </a>
                 {% endif %}
