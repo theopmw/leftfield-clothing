@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'blog',
 
     # Other
+    'django.contrib.humanize',
     'crispy_forms',
     'storages',
 
