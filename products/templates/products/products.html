@@ -31,7 +31,7 @@
         </div>
         <!-- Category/Subcategory badges -->
         <div class="row">
-            <div id="items" class="col text-center mt-3">
+            <div id="items" class="col font-raleway text-center mt-3">
                 {% for category in current_categories %}
                     {% if category.name == "clothing" %}
                         <a class="subcategory-badge text-decoration-none" href="{% url 'products' %}?category=clothing">
@@ -136,7 +136,7 @@
                 <div class="row mt-1 mb-2">
                     <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                         <!-- Sort selector -->
-                        <div class="sort-select-wrapper pt-2 w-75">
+                        <div class="sort-select-wrapper font-roboto pt-2 w-75">
                             <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                                 <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
@@ -152,7 +152,7 @@
                     </div>
                     <!-- Product count & search results -->
                     <div class="col-12 col-md-6 order-md-first">
-                        <p class="text-muted mt-3 text-center text-md-left">
+                        <p class="text-muted font-raleway mt-3 text-center text-md-left">
                             {% if search_term or current_categories or current_subcategories or current_sorting != 'None_None' %}
                                 <span class="small"><a href="{% url 'products' %}">All Products</a> | </span>
                             {% endif %}
@@ -201,9 +201,9 @@
                                                     </a>
                                                 </p>
                                             {% endif %}
-                                            <!-- Edir/delete buttons -->
+                                            <!-- Edit/delete buttons -->
                                             {% if request.user.is_superuser %}
-                                                <div class="admin-buttons mt-2">
+                                                <div class="admin-buttons mt-2 mb-3">
                                                     <a class="edit-button btn-sm btn-outline-black font-raleway text-uppercase rounded-0" href="{% url 'edit_product' product.id %}">Edit</a> | 
                                                     <a class="delete-button btn-sm btn-outline-black font-raleway text-uppercase rounded-0" href="{% url 'delete_product' product.id %}">Delete</a>
                                                 </div>
