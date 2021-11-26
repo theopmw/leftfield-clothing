@@ -110,6 +110,17 @@ Link to the live site [here](https://leftfield-clothing-theopmw.herokuapp.com/).
 
 ![Email confirmation](media/readme_screenshots/email_confirmation.png)
 
+**Blog**
+
+- [x] Easily see a summary of posts
+
+![Blog posts](media/readme_screenshots/blog_posts.png)
+
+- [x] Easily open and see the full blog post
+
+![Blog posts](media/readme_screenshots/blog_post.png)
+
+
 #### As an admin, I would like to:
 
 **Admin and Store Management**
@@ -244,6 +255,29 @@ The imagery for the site has been taken from [End](https://www.endclothing.com/g
 - The **Profile Page** features a '```<User>```'s Profile' heading, the users default delivey information and order history.
 - The users default delivery information consists of a form which allows users to update and save thier delivery information. If the user opted to save their delivery information at checkout, this form will be prefilled withh the information provided at checkout.
 - The order history provides a biref look at the users past orders in chronological order. If the user clicks the order number they are redirected to a complete summary of that order.
+
+### Blog Posts Page
+
+- The **Blog Posts Page** features a 'The Leftfield Blog' heading and Bootstrap cards dispalying the blog posts.
+- The design for this page has been kept similar to the All Products Page to keep in with the design of the rest of the site.
+- The following information is diplayed for each post:
+    - The post image
+    - The post title
+    - The post author
+    - The post content (truncated)
+    - The date posted
+- There is a 'Read More' button at the bottom of each card which redirects the user to the Blog Post Detail Page.
+
+### Blog Post Detail Page
+
+- The **Blog Posts Page** features a 'The Leftfield Blog' heading.
+- The following information is displayed for each post:
+    - The post image
+    - The post title
+    - The date posted
+    - The post author
+    - The post content
+- There is a 'Back to Blog' button at the bottom of each card which redirects the user to the Blog Posts Page.
 
 ### Product Management Page
 (only available to site admin/superusers)
