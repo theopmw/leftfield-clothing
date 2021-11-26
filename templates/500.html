@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="font-raleway text-uppercase">Error</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h2 class="font-raleway text-black mt-5 mb-3">Oops! Looks like we've taken a wrong turn, click the button below to get back on track...</h2>
+                <a href="{% url 'home' %}" class="btn btn-outline-black rounded-0">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="font-raleway text-uppercase">Take me Home</span>
+                </a>
+            </div> 
+        </div>
+    </div>
+{% endblock %}
+
