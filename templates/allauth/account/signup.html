@@ -9,16 +9,21 @@
 <h2 class="font-raleway text-uppercase">{% trans "Sign Up" %}</h2>
 <hr>
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+<p class="font-raleway">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+<form class="signup font-roboto mb-3" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
   {{ form|crispy }}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <a class="btn btn-outline-black rounded-0" href="{% url 'account_login' %}">Back to Login</a>
-  <button type="submit">{% trans "Sign Up" %}</button>
+  <a href="{% url 'account_login' %}" class="btn btn-outline-black rounded-0">
+    <span class="icon">
+        <i class="fas fa-chevron-left"></i>
+    </span>
+    <span class="font-raleway text-uppercase">Back to Login</span>
+</a>
+  <button class="text-uppercase font-raleway" type="submit">{% trans "Sign Up" %}</button>
 </form>
 
 {% endblock %}
