@@ -146,6 +146,19 @@ The user stories are annotated below to describe functionality and highlight the
 
     - [x] Upon successful checkout, the user will be sent a confirmation email containing the details of the order.
 
+#### Blog
+
+- **Easily see a summary of posts**
+
+    - [x] Clicking the Blog link in the main navigation menu opens the Blog Posts Page
+
+    - [x] The Blog Posts page displays all the blog posts as Bootstap cards.
+
+- **Easily open and see the full blog post**
+
+    - [x] Clicking the 'Read More' button (or the post image) on the Blog Posts page opens the individual blog post page with full details of that blog post.
+
+    - [x] Clicking the 'Back to Blog' button redirects the user back to the Blog Posts Page, displaying all blog posts.
 
 ### As an Admin I Would like to:
 
@@ -322,6 +335,24 @@ The site has been tested on a wide range of devices and browsers to confirm func
 - [x] Confirm confirmation email is correct.
 
 - [x] Confirm all details are correct and relate to the information provided in the checkout form.
+
+### Blog Posts Page
+
+- [x] Confirm page layout is responsive, clear and readable on all screen sizes and devices.
+
+- [x] Confirm all post data is diplayed correctly on Bootstrap cards.
+
+- [x] Confirm 'Read More' button and clicking the post image redirects to correct blog post page.
+
+### Blog Post Page
+
+- [x] Confirm page layout is responsive, clear and readable on all screen sizes and devices.
+
+- [x] Confirm all post data is diplayed correctly.
+
+- [x] Confirm clicking the post image opens the image in a new tab.
+
+- [x] Confirm 'Back to Blog' button redirects to the main Blog Posts Page.
 
 ### Registration/Sign Up Page
 
