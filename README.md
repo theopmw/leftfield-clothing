@@ -320,6 +320,9 @@ The imagery for the site has been taken from [End](https://www.endclothing.com/g
 [Gmail](https://gmail.com) - **Gmail** was used to provide the SMPT server, allowing the application to handle emails.
 * [PostgreSQL](https://www.postgresql.org/) - **PostgreSQL** used for the relational database, hosted and deployed via Heroku.
 
+## Information Architecture
+
+
 ## Testing
 
 Detailed testing information can be found in separate [TESTING.md](https://github.com/theopmw/leftfield-clothing/blob/main/TESTING.md) file.
@@ -859,3 +862,35 @@ $ git clone https://github.com/theopmw/theopmw/leftfield-clothing
 ```
 
 7. Press Enter and your local clone will be created.
+
+## Credits
+
+### Code
+
+* My Mentor, Spencer Barriball for providing support, guidance and inspiration.
+* [Bootstrap](https://getbootstrap.com/): Bootstrap Library used throughout the project for the Bootstrap Grid System, to make the site responsive and for select Bootstrap Components.
+* Various online resources utilised for guidance throughout the project - [CSS Tricks](https://css-tricks.com/), [Stack Overflow](https://stackoverflow.com/), [W3 Schools](https://www.w3schools.com/), [Django Central](https://www.djangocentral.com).
+    * All code modified from external sources to suit the needs of the project are attributed via comments above the code throughout the project.
+* The Code Institute Tutor Team for assistance with the creation of the site.
+
+### Content
+
+* All content was written by the developer, product descriptions were sourced from [End](https://www.endclothing.com/gb) and are for educational purposes only.
+
+#### Favicon
+
+* The page favicon was generated using https://favicon.io/.
+
+#### Imagery
+
+* All imagery was sourced from [End](https://www.endclothing.com/gb) and are for educational purposes only.
+
+### Acknowledgements
+
+* My Mentor, Spencer Barriball, for continuous feedback, support, guidance and inspiration.
+* Code Institute Tutor Support, for their continuous support and guidance.
+* Code Institute Assessment team, for providing insightful feedback, reducing any re-occurring errors that may have carried over from my MS1 project, [Done London](https://github.com/theopmw/Done-London) and MS2 project, [Top Spots London](https://github.com/theopmw/Top-Spots-London) and MS3 project, [Recipe Box](https://github.com/theopmw/recipe-box).
+
+### Disclaimer
+
+All content on this site was developed for educational purposes only all images are not property of Leftfield Clothing or the developer and are never intended to be used commercially.
