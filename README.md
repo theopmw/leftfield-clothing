@@ -1,8 +1,12 @@
+# Leftfield Clothing
+![Logo](media/readme_screenshots/logo.png)  
+Link to the live site [here](https://leftfield-clothing-theopmw.herokuapp.com/).
+
 ## **Site Goals**
 
 This project is part of my [Code Institute](https://codeinstitute.net/) Full Stack Software Development Diploma, specifically for the **Full Stack Frameworks** module. The objective of this project is to "build a full-stack site based around business logic used to control a centrally-owned dataset". The site features an authentication mechanism and provides paid access to the site's data based on the dataset, by way of the purchase of a product or products.
 
-Link to the live site [here](https://leftfield-clothing-theopmw.herokuapp.com/).
+
 
 ## **UX**
 
@@ -112,7 +116,7 @@ Link to the live site [here](https://leftfield-clothing-theopmw.herokuapp.com/).
 
 **Blog**
 
-- [x] Easily see a summary of posts
+- [x] Easily see a summary of posts with to see reviews of products, information about new arrivals, products coming soon etc.
 
 ![Blog posts](media/readme_screenshots/blog_posts.png)
 
