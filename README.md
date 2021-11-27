@@ -290,6 +290,30 @@ The imagery for the site has been taken from [End](https://www.endclothing.com/g
 - The page features an add product form containing all relevant fields to add a product to the DB and buttons to either cancel or add the product to the DB at the bottom of the page.
 - If the user is editing a product, the form will be pre-filled with the product information and the button at the bottom of the page will read "Update Product'.
 
+## Additional/Future Features
+
+The project could be expanded in various ways in order to provide a better overall UX. Additional features could include:
+
+### Login
+
+- Add the ability for users to log in with their google account, this will help to streamline registration and encourage more users to sign up to the site. The following guide could be used to implement this: [Django Google Authentication using django-allauth](https://dev.to/mdrhmn/django-google-authentication-using-django-allauth-18f8).
+
+### Products
+
+- Add a full rating system giving users to rate porducts on the site, this would be based on a star system where users are able to rate products on a scale of 1-5.
+
+- Add sale/discounted items. Add the ability for the admin to add a dicount percentage to a product and aplly that to the price. The discount percentage and sale price would be displayed on the product card and on the product detail page.
+
+### Blog
+
+- Add full CRUD functionality to the blog app allowing admin users to create, read, edit and delete posts on the live site through a set of forms (similar to the process for products).
+
+- Add a comments system so users are able to add comments and discuss blog posts.
+
+### Admin
+
+- Admin area to track most viewed and best selling items. Sorting parameters could then be applied to the product pages to allow users to sort products by best selling.
+
 ## Technologies Used
 
 ### Languages Used
