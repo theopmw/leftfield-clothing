@@ -228,7 +228,7 @@ The site has been tested on a wide range of devices and browsers to confirm func
 
 - [x] Confirm clicking on a product image opens the Product Detail page.
 
-- [x] Confirm clicking on a product subcategory tag opens the correct Subcategory page.
+- [x] Confirm clicking on a product subcategory tag opens the correct Subcategory page and the category badge selected is set to active (colours are inverted).
 
 - [x] Confirm Back to Top button works correctly.
 
