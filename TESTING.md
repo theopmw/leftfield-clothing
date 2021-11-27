@@ -70,7 +70,7 @@ The user stories are annotated below to describe functionality and highlight the
 
     - [x] The profile page displays the users default delivery information (which is saved if they check the checkbox when placing an order). They are able to update these details on the Profile page. The users order history is also displayed in chronological order. The order numbers act as links to open a confirmation with a full breakdown of the order.
 
-### Sorting and Searching
+#### Sorting and Searching
 
 - **Sort the list of available products by name, price, brand or rating**
 
@@ -264,6 +264,8 @@ The site has been tested on a wide range of devices and browsers to confirm func
 
 - [x] If the bag total is below the free delivery threshold, confirm that the Bootstrap toast contains the delivery cost and there is a message to the user notifying them of the amount they need to spend to qualify for free shipping. 
 
+- [x] Confirm success toast is loading Django Humanize correctly to add a comma to large numbers.
+
 - [x] Confirm Bootstrap toast 'Go To Shopping Bag' button redirects the user to the Shopping Bag page.
 
 ### Shopping Bag Page
@@ -291,6 +293,8 @@ The site has been tested on a wide range of devices and browsers to confirm func
 - [x] If the bag total is below the free delivery threshold, confirm that the delivery total is correct, that it is added to the grand total and that there is a message to the user notifying them of the amount they need to spend to qualify for free shipping. 
 
 - [x] Confirm that the grand total is correct and updates accordingly.
+
+- [x] Confirm Django Humanize is loading correctly on totals fields to add a comma to large numbers.
 
 - [x] Confirm that the Keep Shopping button redirects the user to the All Products Page.
 
@@ -324,6 +328,8 @@ The site has been tested on a wide range of devices and browsers to confirm func
 
 - [x] Confirm Order Summary displays the correct totals.
 
+- [x] Confirm Django Humanize is loading correctly on totals fields to add a comma to large numbers.
+
 - [x] Checkout with complete form and confirm loader displays and user is then redirected to Checkout Success page.
 
 - [x] Break form and confirm order is still processed and order is added to users profile and email confirmation is still sent to test Stripe webhooks are working as they should.
@@ -335,6 +341,8 @@ The site has been tested on a wide range of devices and browsers to confirm func
 - [x] Confirm confirmation email is correct.
 
 - [x] Confirm all details are correct and relate to the information provided in the checkout form.
+
+- [x] Confirm Django Humanize is loading correctly on totals fields to add a comma to large numbers.
 
 ### Blog Posts Page
 
