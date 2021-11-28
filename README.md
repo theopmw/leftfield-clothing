@@ -161,12 +161,11 @@ After researching a wide range of similar sites, the decision was made to keep c
 
 Raleway was used for the site logo as is a clear and clean. It was also used accross the site for the navigation menu, page headings and buttons to tie the site in with the site logo/branding.
 
-Roboto was used as the secondary font to provide a point of difference and was chosen as it is a very clear and legible font. It is used in the delivery banner, for the product detail text and for sections of the product detail pages. 
+Roboto was used as the secondary font to provide a point of difference and was chosen as it is a very clear and legible font. It is used in the delivery banner, for the product detail text and for sections of the product detail pages and blog pages. 
 
 ### Imagery
 
 The imagery for the site has been taken from [End](https://www.endclothing.com/gb). All images belong to End and are only used in this site for educational purposes.
-
 
 ## Features
 
