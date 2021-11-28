@@ -121,5 +121,5 @@ form.addEventListener('submit', function(ev) {
     // Attach failure function if view sends a 400 response and reload the page
     }).fail(function () {
         location.reload();
-    })
+    });
 });

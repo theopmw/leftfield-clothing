@@ -252,25 +252,25 @@
 <!-- Back to top button -->
 <script type="text/javascript">
     $('.btt-link').click(function(e) {
-        window.scrollTo(0,0)
-    })
+        window.scrollTo(0,0);
+    });
 </script>
 <!-- Add active class to category or subcategory for nav buttons -->
 <!-- to mark as active and invert button colours on active page using CSS -->
 <script>
-    const items = document.querySelectorAll('#items a')
+    const items = document.querySelectorAll('#items a');
     items.forEach(item => {
         if (location.href.includes('?category')) {
             if (item.href.includes('?category')) {
-                const span = item.querySelector('span')
-                span.classList.add('active')
+                const span = item.querySelector('span');
+                span.classList.add('active');
             }
         }
         else {
             const subcat = location.href.split('subcategory=')[1];
             if (item.href.endsWith("=" + subcat)) {
-                const span = item.querySelector('span')
-                span.classList.add('active')
+                const span = item.querySelector('span');
+                span.classList.add('active');
             }
         }
     });
@@ -297,7 +297,7 @@
 
             window.location.replace(currentUrl);
         }
-    })
+    });
 </script>
 {% endblock %}
 
