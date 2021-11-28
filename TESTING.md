@@ -472,6 +472,34 @@ The site has been tested on a wide range of devices and browsers to confirm func
 
 - [x] Check AWS Bucket to confirm product image has been added to media folder.
 
+## Automated Testing
+
+The following automated tools/linters were used to test the project code throughout the development process:
+
+### W3C Markup Validation
+(HTML)
+
+* Only warnings/errors displayed by [W3C Markup Validation Service](https://validator.w3.org/) relate to the use of Django template tags throughout .html files.
+
+### W3C CSS Validation
+(CSS)
+
+* No errors or warnings were found when the CSS files were tested using the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/).
+
+### JSHint
+(JavaScript)
+
+[JSHint](https://jshint.com/) was used to JavaScript files, no errors or warnings were found.
+
+### PEP8 Testing
+(Python)
+
+[Autopep8](https://pypi.org/project/autopep8/) was used to help with Python formatting to meet PEP8 compliance guidelines.
+
+[PEP8 Online](http://pep8online.com/) was used to check all python code.
+
+
+
 ##  Bugs
 
 - ### Django admin: populating select options depending on another select
