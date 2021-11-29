@@ -13,25 +13,29 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='order',
             name='county',
-            field=models.CharField(blank=True, default='', max_length=80, null=''),
+            field=models.CharField(
+                blank=True, default='', max_length=80, null=''),
             preserve_default=False,
         ),
         migrations.AlterField(
             model_name='order',
             name='postcode',
-            field=models.CharField(blank=True, default='', max_length=20, null=''),
+            field=models.CharField(
+                blank=True, default='', max_length=20, null=''),
             preserve_default=False,
         ),
         migrations.AlterField(
             model_name='order',
             name='street_address2',
-            field=models.CharField(blank=True, default='', max_length=80, null=''),
+            field=models.CharField(
+                blank=True, default='', max_length=80, null=''),
             preserve_default=False,
         ),
         migrations.AlterField(
             model_name='orderlineitem',
             name='product_size',
-            field=models.CharField(blank=True, default='', max_length=10, null=''),
+            field=models.CharField(
+                blank=True, default='', max_length=10, null=''),
             preserve_default=False,
         ),
     ]
