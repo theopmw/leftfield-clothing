@@ -21,11 +21,6 @@
                 <div class="product-details-container mb-5 mt-md-5">
                     <h4 class="font-raleway mb-0">{{ product.name }}</h4>
                     <p class="small font-raleway mb-0 text-left text-muted">{{ product.brand }}</p>
-                    <!-- {% if product.brand %}
-                        <p class="small mt-1 mb-0">
-                            <a class="text-muted" href="{% url 'products' %}?brand={{ product.brand }}">{{ product.brand }}</a>
-                        </p>
-                    {% endif %} -->
                     <p class="lead font-roboto mb-0 text-left font-weight-bold">£{{ product.price }}</p>
                     {% if product.rating %}
                         <small class="text-muted font-roboto"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
