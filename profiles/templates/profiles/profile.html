@@ -1,20 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
+{% load humanize %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}
-
 {% block content %}
-    <div class="overlay"></div>
     <div class="container">
         <div class="row">
             <div class="col">
@@ -68,7 +60,7 @@
                                             {% endfor %}
                                         </ul>
                                     </td>
-                                    <td>£{{ order.grand_total }}</td>
+                                    <td>£{{ order.grand_total|intcomma }}</td>
                                 </tr>
                             {% endfor %}
                         </tbody>
