@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import (render, redirect, reverse,
+                              HttpResponse, get_object_or_404)
 from django.contrib import messages
 
 from products.models import Product
@@ -7,7 +8,9 @@ from products.models import Product
 
 
 def view_bag(request):
-    """ View to render bag contents page """
+    """
+    View to render bag contents page
+    """
 
     return render(request, 'bag/bag.html')
 
@@ -42,21 +45,23 @@ def add_to_bag(request, item_id):
                 # Message to let users know quantity of
                 # product with sizes updated
                 messages.success(
-                    request, f'Updated {product.name} (Size: {size.upper()}) quantity to'
-                    f' {bag[item_id]["items_by_size"][size]}')
+                    request, f'Updated {product.name} (Size: {size.upper()})'
+                    f' quantity to {bag[item_id]["items_by_size"][size]}')
             else:
                 # If it doesn't, set it equal to the quantity
                 bag[item_id]['items_by_size'][size] = quantity
                 # Message to let users know product with size added to bag
                 messages.success(
-                    request, f'Added {product.name} (Size: {size.upper()}) to your bag')
+                    request, f'Added {product.name} (Size: {size.upper()})'
+                    f' to your bag')
         # If item not in bag:
         else:
             # Add as dictionary
             bag[item_id] = {'items_by_size': {size: quantity}}
             # Message to let users know product with size added to bag
             messages.success(
-                request, f'Added {product.name} (Size: {size.upper()}) to your bag')
+                request, f'Added {product.name} (Size: {size.upper()})'
+                f' to your bag')
     # If product has no sizes
     else:
         # Update quantity of item in bag if specific item already in bag
@@ -113,7 +118,8 @@ def adjust_bag(request, item_id):
                 bag.pop(item_id)
             # Message to let users know product with sizes removed from bag
             messages.success(
-                request, f'Removed {product.name} (Size: {size.upper()}) from your bag')
+                request, f'Removed {product.name} (Size: {size.upper()})'
+                f' from your bag')
     # Adjust products without sizes
     else:
         # If quantity greater than 0, set the items quantity accordingly
