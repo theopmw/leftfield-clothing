@@ -345,6 +345,9 @@ The project could be expanded in various ways in order to provide a better overa
 
 ## Information Architecture
 
+The database schema was created using [DrawSQL](https://drawsql.app/home):
+
+![Database schema](media/readme_screenshots/database_schema.png)
 
 ## Testing
 
