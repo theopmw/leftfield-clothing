@@ -1,58 +1,6 @@
-/* Open main nav menu items on hover */
-/* Code modified from https://www.tutorialrepublic.com/faq/how-to-open-bootstrap-dropdown-menu-on-hover-rather-than-click.php#:~:text=Answer%3A%20Use%20the%20jQuery%20hover,using%20the%20CSS%20and%20jQuery. */
-.main-nav-dropdown:hover .dropdown-menu{
-    display: block;
-}
-.dropdown-menu{
-    margin-top: 0;
-}
-
 /* Allows h-100 classes and vertical centering to work */
 html {
     height: 100%;
-}
-
-.home-hero {
-    /* background: url('/media/home_hero.png'); */
-    /* background-size: cover; */
-    /* background-repeat: no-repeat; */
-    /* height: 900px; */
-    /* display: flex; */
-    /* max-width: 100%; */
-    /* height: 400px; */
-    /* width: auto\9; ie8 */
-
-    background-image: url('/media/home_hero_sm.png');
-    height: 400px;
-    /* height: calc(vh - 168px); */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    /* top: 25%; */
-    /* right: 25%;
-    transform: translate(-25%, -25%); */
-
-}
-
-.home-hero-text {
-    margin: 10px 0 0 20px;
-}
-/* body {
-    background: url('/media/home_hero.png') no-repeat center center fixed;
-    height: calc(100vh - 168px);
-    height: 100%;
-    background-size: cover;
-} */
-
-.overlay {
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	background: white;
-	z-index: -1;
 }
 
 /* from Bulma */
@@ -86,12 +34,6 @@ html {
 .font-roboto {
     font-family: 'Roboto', sans-serif !important;
 }
-
-/* -------------------------------- General spacing */
-
-/* .header-container {
-    padding-top: 11.5rem;
-} */
 
 /* -------------------------------- Buttons */
 
@@ -189,7 +131,6 @@ a.remove-item > span.badge:hover,
 
 .main-logo-link {
     font-family: 'Raleway', sans-serif;
-    /* width: fit-content; */
 }
 
 .main-logo-link:hover {
@@ -239,6 +180,15 @@ input[name='q']::placeholder {
     margin: 0;
 }
 
+/* Open main nav menu items on hover */
+/* Code modified from https://www.tutorialrepublic.com/faq/how-to-open-bootstrap-dropdown-menu-on-hover-rather-than-click.php#:~:text=Answer%3A%20Use%20the%20jQuery%20hover,using%20the%20CSS%20and%20jQuery. */
+.main-nav-dropdown:hover .dropdown-menu{
+    display: block;
+}
+.dropdown-menu{
+    margin-top: 0;
+}
+
 /* --------------------- Delivery banner */
 
 .bg-black {
@@ -250,10 +200,6 @@ input[name='q']::placeholder {
 }
 
 /* -------------------------------- Footer */
-
-/* .footer-logo-row {
-    border-bottom: solid 1px #000;
-} */
 
 /* --------------------- Contact us */
 
@@ -393,6 +339,21 @@ input[name='q']::placeholder {
 	color: #17a2b8; /* text-info */
 }
 
+/* -------------------------------- Home */
+
+.home-hero {
+    background-image: url('/media/home_hero_sm.png');
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.home-hero-text {
+    margin: 10px 0 0 20px;
+}
+
 /* -------------------------------- Add & edit product forms */
 
 .btn-file {
@@ -421,7 +382,6 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
-
 /* -------------------------------- Media Queries */
 
 @media (min-width: 768px) {
@@ -430,7 +390,6 @@ input[name='q']::placeholder {
     }
 
     .home-hero {
-        /* top: 168px; */
         height: 480px;
     }
 
@@ -440,15 +399,6 @@ input[name='q']::placeholder {
 }
 
 @media (min-width: 992px) {
-    /* fixed top navbar only on medium and up */
-    /* .fixed-top-desktop-only {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    } */
-
     .home-hero {
         background-image: url('/media/home_hero.png');
         height: 400px;
@@ -459,28 +409,13 @@ input[name='q']::placeholder {
             top: 50%; 
             left: 75%;
             transform: translate(-50%,-50%);
-            /* width: 200px;
-            height: 200px; */
     }
 
 
     .main-logo-link-clothing {
         margin: -5px 0 0 2px !important;
-        /* letter-spacing: 13.8px !important; */
-        /* margin: -5px 0 0 1px !important; */
-        /* font-weight: 200; */
     }
-
-    /* .header-container {
-        padding-top: 10.5rem;
-    } */
-
-    /* .btt-button {
-        bottom: 204px
-    } */
-
 }
-
 
 @media (min-width: 1200px) {
     /* Slightly larger container on xl screens */
@@ -494,15 +429,6 @@ input[name='q']::placeholder {
 
     .home-hero-text {
         left: 80%;
-        /* width: 200px;
-        height: 200px; */
+
+    }
 }
-  }
-
-  
-
-
-/* .active {
-    background: #212529 !important;
-    color:#fff !important;
-} */
