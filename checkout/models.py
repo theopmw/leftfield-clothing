@@ -11,6 +11,9 @@ from profiles.models import UserProfile
 
 
 class Order(models.Model):
+    """
+    Model for Order table
+    """
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(
         UserProfile, on_delete=models.SET_NULL, null=True, blank=True,
@@ -19,11 +22,11 @@ class Order(models.Model):
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     country = CountryField(blank_label='Country *', null=False, blank=False)
-    postcode = models.CharField(max_length=20, null=True, blank=True)
+    postcode = models.CharField(max_length=20, null="", blank=True)
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
-    street_address2 = models.CharField(max_length=80, null=True, blank=True)
-    county = models.CharField(max_length=80, null=True, blank=True)
+    street_address2 = models.CharField(max_length=80, null="", blank=True)
+    county = models.CharField(max_length=80, null="", blank=True)
     date = models.DateTimeField(auto_now_add=True)
     delivery_cost = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, default=0)
@@ -70,13 +73,16 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """
+    Model for OrderLineItem table
+    """
     order = models.ForeignKey(
         Order, null=False, blank=False, on_delete=models.CASCADE,
         related_name='lineitems')
     product = models.ForeignKey(
         Product, null=False, blank=False, on_delete=models.CASCADE)
     product_size = models.CharField(
-        max_length=10, null=True, blank=True) # XS, S, M, L, XL
+        max_length=10, null="", blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(
         max_digits=6, decimal_places=2, null=False,

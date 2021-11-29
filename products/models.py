@@ -12,7 +12,7 @@ class Category(models.Model):
     Model for Category table
     """
     name = models.CharField(max_length=254, db_index=True)
-    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    friendly_name = models.CharField(max_length=254, null="", blank=True)
     slug = models.SlugField(
         max_length=150, unique=True, db_index=True)
 
@@ -35,7 +35,7 @@ class SubCategory(models.Model):
         'Category', related_name='subcategories',
         on_delete=models.CASCADE)
     name = models.CharField(max_length=254, db_index=True)
-    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    friendly_name = models.CharField(max_length=254, null="", blank=True)
     slug = models.SlugField(
         max_length=150, unique=True, db_index=True)
 
@@ -68,14 +68,14 @@ class Product(models.Model):
     subcategory = models.ForeignKey(
         'SubCategory', related_name='products',
         on_delete=models.CASCADE)
-    sku = models.CharField(max_length=254, null=True, blank=True)
+    sku = models.CharField(max_length=254, null="", blank=True)
     description = models.TextField()
-    brand = models.CharField(max_length=254, null=True, blank=True)
+    brand = models.CharField(max_length=254, null="", blank=True)
     has_sizes = models.BooleanField(default=False, null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    image_url = models.URLField(max_length=1024, null="", blank=True)
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):

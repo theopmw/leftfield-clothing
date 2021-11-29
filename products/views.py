@@ -1,13 +1,12 @@
+import json
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.http import HttpResponse
 from .models import Product, SubCategory, Category
 from .forms import ProductForm
-from django.http import HttpResponse
-
-import json
 
 
 # Code for view modified from:
@@ -130,7 +129,8 @@ def product_detail(request, slug, product_id):
     """
     View to show individual product details.
     """
-    product, product_url = get_redirected(Product, {'pk': product_id}, {'slug': slug})
+    product, product_url = get_redirected(
+        Product, {'pk': product_id}, {'slug': slug})
     if product_url:
         return redirect(product_url)
 
@@ -143,7 +143,7 @@ def product_detail(request, slug, product_id):
 
 @login_required
 def add_product(request):
-    """ 
+    """
     View to add a product to the store.
     """
     if not request.user.is_superuser:
@@ -184,7 +184,7 @@ def add_product(request):
 
 @login_required
 def edit_product(request, product_id):
-    """ 
+    """
     View to edit a product.
     """
     if not request.user.is_superuser:
@@ -227,7 +227,6 @@ def edit_product(request, product_id):
 
 
 @login_required
-
 def delete_product(request, product_id):
     """ Delete a product from the store """
     if not request.user.is_superuser:
