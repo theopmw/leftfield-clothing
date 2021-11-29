@@ -42,7 +42,7 @@
                         <div class="col-7">
                             <p class="my-0 font-raleway"><strong>{{ item.product.name }}</strong></p>
                             <p class="my-0 small font-roboto">Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
-                            <p class="my-0 small text-muted font-roboto">Qty: {{ item.quantity }}</p>
+                            <p class="mb-2 small text-muted font-roboto">Qty: {{ item.quantity }}</p>
                         </div>
                         <div class="col-3 text-right">
                             <p class="my-0 small text-muted font-roboto">£{{ item.product.price | calc_subtotal:item.quantity|intcomma }}</p>
@@ -104,11 +104,11 @@
                     </fieldset>
 
                     <div class="submit-button text-right mt-5 mb-2">                    
-						<a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0">
+						<a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0 mb-2 mb-md-0">
 							<span class="icon">
 								<i class="fas fa-chevron-left"></i>
 							</span>
-							<span class=" font-raleway text-uppercase">Adjust Bag</span>
+							<span class="font-raleway text-uppercase">Adjust Bag</span>
 						</a>
 						<button id="submit-button" class="btn btn-black rounded-0 font-raleway text-uppercase">
 							<span>Complete Order</span>
