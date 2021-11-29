@@ -1,11 +1,12 @@
-from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
 
 def bag_contents(request):
-
+    """
+    View to handle bag contents
+    """
     # Empty list for bag items to live in
     bag_items = []
     # Initialize total and product_count to 0
