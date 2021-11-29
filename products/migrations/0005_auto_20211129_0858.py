@@ -13,31 +13,36 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='category',
             name='friendly_name',
-            field=models.CharField(blank=True, default='', max_length=254, null=''),
+            field=models.CharField(
+                blank=True, default='', max_length=254, null=''),
             preserve_default=False,
         ),
         migrations.AlterField(
             model_name='product',
             name='brand',
-            field=models.CharField(blank=True, default='', max_length=254, null=''),
+            field=models.CharField(
+                blank=True, default='', max_length=254, null=''),
             preserve_default=False,
         ),
         migrations.AlterField(
             model_name='product',
             name='image_url',
-            field=models.URLField(blank=True, default='', max_length=1024, null=''),
+            field=models.URLField(
+                blank=True, default='', max_length=1024, null=''),
             preserve_default=False,
         ),
         migrations.AlterField(
             model_name='product',
             name='sku',
-            field=models.CharField(blank=True, default='', max_length=254, null=''),
+            field=models.CharField(
+                blank=True, default='', max_length=254, null=''),
             preserve_default=False,
         ),
         migrations.AlterField(
             model_name='subcategory',
             name='friendly_name',
-            field=models.CharField(blank=True, default='', max_length=254, null=''),
+            field=models.CharField(
+                blank=True, default='', max_length=254, null=''),
             preserve_default=False,
         ),
     ]
