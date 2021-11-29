@@ -332,7 +332,7 @@ The site has been tested on a wide range of devices and browsers to confirm func
 
 - [x] Checkout with complete form and confirm loader displays and user is then redirected to Checkout Success page.
 
-- [x] Break form and confirm order is still processed and order is added to users profile and email confirmation is still sent to test Stripe webhooks are working as they should.
+- [x] Break form and confirm order is still processed and order is added to users profile, DB and email confirmation is still sent to test Stripe webhooks are working as they should.
 
 ### Order Success Page
 
