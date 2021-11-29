@@ -201,6 +201,10 @@ input[name='q']::placeholder {
 
 /* -------------------------------- Footer */
 
+.footer-link {
+    text-decoration: none;
+}
+
 /* --------------------- Contact us */
 
 .contact-us {
@@ -208,6 +212,16 @@ input[name='q']::placeholder {
 }
 
 .contact-email:hover {
+    text-decoration: none;
+}
+
+/* --------------------- Site nav links */
+
+.footer-links-list {
+    list-style-type: none;
+}
+
+.footer-link:hover {
     text-decoration: none;
 }
 

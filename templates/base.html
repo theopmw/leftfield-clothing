@@ -163,8 +163,21 @@
                     </div>
                     <!-- Links -->
                     <div class="footer-links col-12 col-lg-4 py-1 py-lg-0 text-center align-top">
-                        <h5 class=" font-raleway text-uppercase">LINKS</h5>
-                        <a href=""><p class="text-muted font-roboto">Add link here</p></a>
+                        <h5 class="font-raleway text-uppercase">LINKS</h5>
+                        <ul class="footer-links-list text-center pl-0 my-2">
+                            <li class="my-1">
+                                <a href="{% url 'products' %}?category=clothing" class="footer-link font-raleway text-muted">All Clothing</a>
+                            </li>
+                            <li class="my-1">
+                                <a href="{% url 'products' %}?category=footwear" class="footer-link font-raleway text-muted">All Footwear</a>
+                            </li>
+                            <li class="my-1">
+                                <a href="{% url 'products' %}?category=accessories" class="footer-link font-raleway text-muted">All Accessories</a>
+                            </li>
+                            <li class="my-1">
+                                <a href="{% url 'post_list' %}" class="footer-link font-raleway text-muted">Blog</a>    
+                            </li>
+                        </ul>
                     </div>
                     <!-- Social links -->
                     <div class="social-links col-12 col-lg-4 py-1 py-lg-0 text-center text-lg-right align-top">
