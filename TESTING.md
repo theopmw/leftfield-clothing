@@ -489,12 +489,12 @@ The following automated tools/linters were used to test the project code through
 ### JSHint
 (JavaScript)
 
-[JSHint](https://jshint.com/) was used to JavaScript files, no errors or warnings were found.
+* [JSHint](https://jshint.com/) was used to JavaScript files, no errors or warnings were found.
 
 ### PEP8 Testing
 (Python)
 
-[Autopep8](https://pypi.org/project/autopep8/) was used to help with Python formatting to meet PEP8 compliance guidelines.
+* [Autopep8](https://pypi.org/project/autopep8/) was used to help with Python formatting to meet PEP8 compliance guidelines.
 
 [PEP8 Online](http://pep8online.com/) was used to check all python code.
 
@@ -649,6 +649,10 @@ A page not found (404) error is displayed.
 
 ![Slug fields causing add product page bug error](media/slug_field_bug_error.png)
 
+The 404.html/500.html files were later added to tie in with the site and provide a better UX should their be an error with the site:
+
+![404/500 error page](media/testing_screenshots/404_500_error.png)
+
 This was caused as the product detail URL is set to a slug and the when navigating to products/add URL, add was being interpreted as a slug(string). 
 
 Fix:  
@@ -749,7 +753,7 @@ def get_subcategory(request):
 The final result can be seen below, only subcategories of the clothing category are available for selection from the subcategoy dropdown when the category dropdown is set to "Clothing".
 ![Django admin select box fix](media/testing_screenshots/populate_select_options_depending_on_another_select_fix.png)
 
-NOTES: THis feature was later removed as it was causing issues with other product URLs, issue will be fixed and feature will be added back in at a later date.
+NOTES: This feature was later removed as it was causing issues with other product URLs, issue will be fixed and feature will be added back in at a later date.
 
 ##  Known bugs & issues
 
