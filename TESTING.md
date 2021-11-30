@@ -1,3 +1,11 @@
+# Testing
+
+# Leftfield Clothing
+![Logo](media/readme_screenshots/logo.png)  
+Link to the live site [here](https://leftfield-clothing-theopmw.herokuapp.com/).
+
+![Am I responsive image](media/testing_screenshots/am_i_responsive.png)
+
 ## User Stories Testing
 
 The user stories are annotated below to describe functionality and highlight the way in which the project fulfils the objectives set out. Relevant screenshots relating to each of the user stories below can be found in the main [README.md](https://github.com/theopmw/leftfield-clothing/blob/main/README.md) file.
