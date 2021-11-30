@@ -301,6 +301,10 @@ Research was conducted by browsing a wide range of clothing sites and looking at
 
 The project could be expanded in various ways in order to provide a better overall UX. Additional features could include:
 
+### Home Page
+
+- Add a 'New Arrivals' section to the home page to display the most recently added products based on a date added field that could be added to the products model.
+
 ### Login
 
 - Add the ability for users to log in with their google account, this will help to streamline registration and encourage more users to sign up to the site. The following guide could be used to implement this: [Django Google Authentication using django-allauth](https://dev.to/mdrhmn/django-google-authentication-using-django-allauth-18f8).
