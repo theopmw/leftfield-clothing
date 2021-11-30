@@ -57,7 +57,8 @@ class Product(models.Model):
     # Credit for get_absolute_url object taken from:
     # https://wellfire.co/learn/fast-and-beautiful-urls-with-django/
     def get_absolute_url(self):
-        return reverse('product', kwargs={'slug': self.slug, 'id': self.id})
+        return reverse(
+            'product', kwargs={'slug': self.slug, 'id': self.id})
 
     name = models.CharField(max_length=254, db_index=True)
     slug = models.SlugField(
