@@ -790,7 +790,7 @@ def update_total(self):
 
 Since the user is unable to create an order of £0.00 this should not cause eny errors or issues for the user when placing an order or allow any delivery charges to be made to the users account without making a purchase that is below the free delivery threshold (£50.00) but greater than £0.00.
 
-### Category/Subcategory filter buttons not working when sorting selector box is used
+- ### Category/Subcategory filter buttons not working when sorting selector box is used
 
 When on a category or subcategory page, use of the sorting selector box breaks the active category button functionality. Due to time constraints the code cannot be refactored be modified to rectify this problem but will be fixed at a later date. See screenshots below to illustrate the issue:
 
