@@ -20,6 +20,7 @@ def profile(request):
         else:
             messages.error(request, 'Update failed, please check form.')
     else:
+        # Populate form with user profile information
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
 
