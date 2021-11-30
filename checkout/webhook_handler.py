@@ -1,14 +1,14 @@
+import json
+import time
+
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
 
-from .models import Order, OrderLineItem
 from products.models import Product
 from profiles.models import UserProfile
-
-import json
-import time
+from .models import Order, OrderLineItem
 
 
 class StripeWH_Handler:
@@ -42,7 +42,6 @@ class StripeWH_Handler:
             content=f'Unhandled webhook received: {event["type"]}',
             status=200)
 
-
     def handle_payment_intent_succeeded(self, event):
         """
         Handle the payment_intent.succeeded webhook from Stripe
@@ -75,7 +74,6 @@ class StripeWH_Handler:
                 profile.default_street_address2 = shipping_details.address.line2
                 profile.default_county = shipping_details.address.state
                 profile.save()
-
 
         order_exists = False
         attempt = 1
@@ -152,7 +150,6 @@ class StripeWH_Handler:
             content=f'Webhook received: {event["type"]}'
             f' | SUCCESS: Created order in webhook',
             status=200)
-
 
     def handle_payment_intent_payment_failed(self, event):
         """
