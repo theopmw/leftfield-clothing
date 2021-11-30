@@ -4,6 +4,51 @@
 ![Logo](media/readme_screenshots/logo.png)  
 Link to the live site [here](https://leftfield-clothing-theopmw.herokuapp.com/).
 
+- [Testing](#testing)
+- [Leftfield Clothing](#leftfield-clothing)
+  * [User Stories Testing](#user-stories-testing)
+    + [As a User I Would like to:](#as-a-user-i-would-like-to-)
+      - [Viewing and Navigation](#viewing-and-navigation)
+      - [Registration and User Accounts](#registration-and-user-accounts)
+      - [Sorting and Searching](#sorting-and-searching)
+      - [Purchasing and Checkout](#purchasing-and-checkout)
+      - [Blog](#blog)
+    + [As an Admin I Would like to:](#as-an-admin-i-would-like-to-)
+      - [Admin and Store Management](#admin-and-store-management)
+  * [Manual Testing](#manual-testing)
+    + [Navigation menu](#navigation-menu)
+    + [Search bar](#search-bar)
+    + [Footer](#footer)
+    + [Home Page](#home-page)
+    + [All Products Page](#all-products-page)
+    + [Product Detail Page](#product-detail-page)
+    + [Shopping Bag Page](#shopping-bag-page)
+    + [Checkout Page](#checkout-page)
+    + [Order Success Page](#order-success-page)
+    + [Blog Posts Page](#blog-posts-page)
+    + [Blog Post Page](#blog-post-page)
+    + [Registration/Sign Up Page](#registration-sign-up-page)
+    + [Confirm Email Address Page](#confirm-email-address-page)
+    + [Sign In Page](#sign-in-page)
+    + [Sign Out Page](#sign-out-page)
+    + [Add Product Page](#add-product-page)
+    + [Edit Product Page](#edit-product-page)
+  * [Automated Testing](#automated-testing)
+    + [W3C Markup Validation](#w3c-markup-validation)
+    + [W3C CSS Validation](#w3c-css-validation)
+    + [JSHint](#jshint)
+    + [PEP8 Testing](#pep8-testing)
+  * [Bugs](#bugs)
+    + [Subcategory buttons only displaying on main category page](#subcategory-buttons-only-displaying-on-main-category-page)
+    + [Slug field as url path causing add product URL error](#slug-field-as-url-path-causing-add-product-url-error)
+    + [Django admin: populating select options depending on another select](#django-admin--populating-select-options-depending-on-another-select)
+  * [Known bugs & issues](#known-bugs---issues)
+    + [Delivery cost remaining in admin if all line items are removed](#delivery-cost-remaining-in-admin-if-all-line-items-are-removed)
+    + [Category/Subcategory filter buttons not working when sorting selector box is used](#category-subcategory-filter-buttons-not-working-when-sorting-selector-box-is-used)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 ![Am I responsive image](media/testing_screenshots/am_i_responsive.png)
 
 ## User Stories Testing
@@ -372,7 +417,7 @@ The site has been tested on a wide range of devices and browsers to confirm func
 
 - [x] Confirm page layout is responsive, clear and readable on all screen sizes and devices.
 
-- [x] Confirm all post data is diplayed correctly.
+- [x] Confirm all post data is displayed correctly.
 
 - [x] Confirm clicking the post image opens the image in a new tab.
 
@@ -516,7 +561,7 @@ The following automated tools/linters were used to test the project code through
 
 ##  Bugs
 
-- ### Subcategory buttons only displaying on main category page
+### Subcategory buttons only displaying on main category page
 
 Expected  
 When one of the subcategory buttons is clicked, the url for that category or subcategory is opened, and the products belonging to that category or subcategory are displayed.
@@ -651,8 +696,7 @@ Code snippet with both loops:
 {% endfor %} 
 
 ```
-
-- ### Slug field as url path causing add product URL error
+### Slug field as url path causing add product URL error
 
 Expected:  
 When navigating to the add product URL, the add product page is displayed.
