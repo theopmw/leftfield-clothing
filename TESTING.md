@@ -364,6 +364,10 @@ The site has been tested on a wide range of devices and browsers to confirm func
 
 - [x] Confirm 'Read More' button and clicking the post image redirects to correct blog post page.
 
+- [x] Confirm blog posts with 'Publish' status are displayed on the live site.
+
+- [x] Confirm blog posts with 'Draft' status are not displayed on the live site but are available to edit and publish in the Django admin panel.
+
 ### Blog Post Page
 
 - [x] Confirm page layout is responsive, clear and readable on all screen sizes and devices.
