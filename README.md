@@ -6,9 +6,9 @@ Link to the live site [here](https://leftfield-clothing-theopmw.herokuapp.com/).
 
 This project is part of my [Code Institute](https://codeinstitute.net/) Full Stack Software Development Diploma, specifically for the **Full Stack Frameworks** module. The objective of this project is to "build a full-stack site based around business logic used to control a centrally-owned dataset". The site features an authentication mechanism and provides paid access to the site's data based on the dataset, by way of the purchase of a product or products.
 
-Leftfield Clothing is online mens clothing store. The website allows users to browse or search available products and make purchases using a secure payment system (Stripe). By registering for an account, users can store their delivery details and easily update them from their profile page, improving the UX and allowing for streamlined and simplified future purchasing.
+Leftfield Clothing is an online mens clothing store concept and integrates an e-commerce payment system in a cloud-hosted full stack web application. The website allows users to browse or search available products and make purchases using a secure e-commerce payment system (Stripe). The site uses authorisation, authentication and permission features to allow users to register for an account. By registering for an account, users can store their delivery details and easily update them from their profile page, improving the UX and allowing for streamlined and simplified future purchasing.
 
-Site owners are able to use full **CRUD** operations - **C**reate, **R**ead, **U**pdate and **D**elete to add, edit and delete products. 
+Site owners are able to use full **CRUD** operations - **C**reate, **R**ead, **U**pdate and **D**elete to add, edit and delete products directly through the UI. 
 
 The site has been designed to be mobile first and easily accessible and responsive on a range of devices. This is to allow users to easily find and purchase products using any device, wherever they are.
 
