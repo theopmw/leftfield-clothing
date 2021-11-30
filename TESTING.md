@@ -26,6 +26,8 @@ The user stories are annotated below to describe functionality and highlight the
 
     - [x] Clicking any product image will open the specific product detail page which provides users with full details of the product, the ability to select quantities and sizes of the product and a button to add the product to their bag.
 
+    - [x] Confirm that the product slug is correctly displayed in the page URL.
+
 - **Easily review the total of my purchases**
 
     - [x] The Shopping Bag can be easily navigated to from the top navigation menu and is displayed on all pages of the site on all device sizes. The grand total is clearly displayed at the bottom of the page, following a summary of all items in the bag.
@@ -159,6 +161,8 @@ The user stories are annotated below to describe functionality and highlight the
     - [x] Clicking the 'Read More' button (or the post image) on the Blog Posts page opens the individual blog post page with full details of that blog post.
 
     - [x] Clicking the 'Back to Blog' button redirects the user back to the Blog Posts Page, displaying all blog posts.
+
+    - [x] Check that the blog post slug is correctly displayed in the page URL
 
 ### As an Admin I Would like to:
 
