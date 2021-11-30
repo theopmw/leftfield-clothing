@@ -6,7 +6,11 @@ Link to the live site [here](https://leftfield-clothing-theopmw.herokuapp.com/).
 
 This project is part of my [Code Institute](https://codeinstitute.net/) Full Stack Software Development Diploma, specifically for the **Full Stack Frameworks** module. The objective of this project is to "build a full-stack site based around business logic used to control a centrally-owned dataset". The site features an authentication mechanism and provides paid access to the site's data based on the dataset, by way of the purchase of a product or products.
 
+Leftfield Clothing is online mens clothing store. The website allows users to browse or search available products and make purchases using a secure payment system (Stripe). By registering for an account, users can store their delivery details and easily update them from their profile page, improving the UX and allowing for streamlined and simplified future purchasing.
 
+Site owners are able to use full **CRUD** operations - **C**reate, **R**ead, **U**pdate and **D**elete to add, edit and delete products. 
+
+The site has been designed to be mobile first and easily accessible and responsive on a range of devices. This is to allow users to easily find and purchase products using any device, wherever they are.
 
 ## **UX**
 
@@ -331,6 +335,8 @@ The project could be expanded in various ways in order to provide a better overa
 * [Bootstrap 4](https://getbootstrap.com/) - **Bootstrap** was used to assist with the responsiveness and styling of the website.
 * [JQuery](https://jquery.com/) - **JQuery** JavaScript library was used to simplify JavaScript code.
 * [Django](https://www.djangoproject.com/) - **Django** high-level Python web framework was used to speed up and simplify the application build.
+* [Django allauth](https://django-allauth.readthedocs.io/en/latest/index.html) - **Django allauth** was used for user authentication.
+* [Django Humanize](https://docs.djangoproject.com/en/3.2/ref/contrib/humanize/) - **Django Humanize** was used to add the 'human touch' to numerical values, adding commas to separate large numbers every 3 digits.
 * [Stripe](https://stripe.com/en-gb) - **Stripe** was used to process online payments and webhooks.
 * [AWS](https://aws.amazon.com/?nc2=h_lg) - **AWS** used for storage of static and media files using [S3](https://aws.amazon.com/s3/) and [IAM](https://aws.amazon.com/iam/) services.
 * [Autopep8](https://pypi.org/project/autopep8/) - **Autopep8** used to format Python code to be PEP8 compliant.
