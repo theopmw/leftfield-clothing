@@ -171,6 +171,12 @@ Roboto was used as the secondary font to provide a point of difference and was c
 
 The imagery for the site has been taken from [End](https://www.endclothing.com/gb). All images belong to End and are only used in this site for educational purposes.
 
+## Wireframes
+
+Research was conducted by browsing a wide range of clothing and looking at their layout, overall design and functionality. The wireframes were used as a guide throughout the design process and some minor deviations were made, most notably the removal of the sale section of the site. This will be added as a future feature but was unable to be completed due to time constraints.
+
+- [Wireframes](https://github.com/theopmw/leftfield-clothing/blob/main/wireframes/leftfield_clothing_wireframes.pdf)
+
 ## Features
 
 ### Consistent Site Features and Components
