@@ -145,12 +145,6 @@ The site has been designed to be mobile first and easily accessible and responsi
 
 ![Product detail edit/delete buttons](media/readme_screenshots/product_detail_edit_delete_buttons.png)
 
-Possible additions:
-
-- [x] See which products are being viewed the most
-
-- [x] See product sales volumes to see which products are selling best
-
 ### Design
 
 The site takes inspiration from similar sites such as [Blacksmith Store](https://www.blacksmith-store.com/), [End](https://www.endclothing.com/gb) and [Flatspot](https://www.flatspot.com/). The aim was to keep the site aesthetic clean and striped back to provide a positive UX and keep the focal point on the products on offer.
