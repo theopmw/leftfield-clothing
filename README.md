@@ -36,8 +36,6 @@ The site has been designed to be mobile first and easily accessible and responsi
 
 ![Product detail](media/readme_screenshots/product_detail.png)
 
-- [x] Identify sale items and special offers
-
 - [x] Easily review the total of my purchases
 
 ![Shopping bag](media/readme_screenshots/shopping_bag.png)
