@@ -1,16 +1,17 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+import json
+from django.shortcuts import (render, redirect, reverse,
+                              get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 import stripe
-import json
 
 from bag.contexts import bag_contents
+from products.models import Product
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 from .forms import OrderForm
 from .models import Order, OrderLineItem
-from products.models import Product
-from profiles.forms import UserProfileForm
-from profiles.models import UserProfile
 
 
 @require_POST
@@ -91,8 +92,8 @@ def checkout(request):
                 except Product.DoesNotExist:
                     # Error message to notify user
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
-                        "Please contact us for assistance!")
+                        "One of the products in your bag wasn't found in our"
+                        " database. Please contact us for assistance!")
                     )
                     # Delete the empty order
                     order.delete()
@@ -179,7 +180,7 @@ def checkout_success(request, order_number):
     # checkout view and send back to the template
     order = get_object_or_404(Order, order_number=order_number)
 
-     # Check if user is authenticated
+    # Check if user is authenticated
     if request.user.is_authenticated:
         # Get user profile
         profile = UserProfile.objects.get(user=request.user)
