@@ -696,6 +696,7 @@ Code snippet with both loops:
 {% endfor %} 
 
 ```
+
 ### Slug field as url path causing add product URL error
 
 Expected:  
@@ -779,7 +780,7 @@ Update URL path in template to take product id - [products/templates/products/pr
 </a>
 ```
 
-- ### Django admin: populating select options depending on another select
+### Django admin: populating select options depending on another select
 
 Expected:  
 The aim was to create a data structure where each product related to a subcategory and each subcategory related to a category. When adding products in the Django admin panel the values available to select in the subcategories dropdown should only be children of the parent category.
@@ -817,7 +818,7 @@ NOTES: This feature was later removed as it was causing issues with other produc
 
 ##  Known bugs & issues
 
-- ### Delivery cost remaining in admin if all line items are removed
+### Delivery cost remaining in admin if all line items are removed
 
 If products are removed via the admin panel to set the order total at £0.00, the delivery cost still remains on the order in the admin.
 
@@ -846,7 +847,7 @@ def update_total(self):
 
 Since the user is unable to create an order of £0.00 this should not cause eny errors or issues for the user when placing an order or allow any delivery charges to be made to the users account without making a purchase that is below the free delivery threshold (£50.00) but greater than £0.00.
 
-- ### Category/Subcategory filter buttons not working when sorting selector box is used
+### Category/Subcategory filter buttons not working when sorting selector box is used
 
 When on a category or subcategory page, use of the sorting selector box breaks the active category button functionality. Due to time constraints the code cannot be refactored be modified to rectify this problem but will be fixed at a later date. See screenshots below to illustrate the issue:
 
